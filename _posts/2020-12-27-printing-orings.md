@@ -49,7 +49,7 @@ The article discussed the following series of TPU's,
 
 All with varying properties, the main important parameter for me here was the hardness. All of them were such that they are decent flexible filaments, this can be seen by the **elongation at break**.
 
-![varioshore](https://raw.githubusercontent.com/shikon/shikon.github.io/master/assets/images/varioshore.jpg)
+![varioshore](https://raw.githubusercontent.com/shikon/cloudimg/master/typora/varioshore.jpg)
 
 Another interesting filament was **colorFabb's varioshore**. By changing the print settings one could tune the flexibility of this material. Its principle of working is, there is an additive in the filament which expands as a gas and introduces bubbles into the material. High school chemistry tells that the hotter one warms up a substance the larger its volume. Using the Ideal gas law, 
 $$
@@ -61,7 +61,9 @@ Although very interesting it brings in many parameters to be tuned and would onl
 
 ## Amazon
 
-Well looking at amazon.de, I didn't get much to choose from. A quick search only gave a few smaller brands and *SainSmart* all3dp was quite positive of this filament. Looking up this filament I found that they had a Ender 3 Cura profile, considering the similarity between Ender 3 and 5 I knew I could take this profile and just use it with little tweaking and I was SOLD. It was cheap too and orange :).![sainsmart](https://raw.githubusercontent.com/shikon/shikon.github.io/master/assets/images/firefox_WbcL291AXV.png)
+Well looking at amazon.de, I didn't get much to choose from. A quick search only gave a few smaller brands and *SainSmart* all3dp was quite positive of this filament. Looking up this filament I found that they had a Ender 3 Cura profile, considering the similarity between Ender 3 and 5 I knew I could take this profile and just use it with little tweaking and I was SOLD. It was cheap too and orange :).
+
+![](https://raw.githubusercontent.com/shikon/shikon.github.io/master/assets/images/firefox_WbcL291AXV.png)
 
 
 
