@@ -49,6 +49,8 @@ The article discussed the following series of TPU's,
 
 All with varying properties, the main important parameter for me here was the hardness. All of them were such that they are decent flexible filaments, this can be seen by the **elongation at break**.
 
+![varioshore](D:\Documents\myblog\shikon.github.io\assets\images\2020-12-27-printing-orings\varioshore.jpg)
+
 Another interesting filament was **colorFabb's varioshore**. By changing the print settings one could tune the flexibility of this material. Its principle of working is, there is an additive in the filament which expands as a gas and introduces bubbles into the material. High school chemistry tells that the hotter one warms up a substance the larger its volume. Using the Ideal gas law, 
 $$
 \mathrm{PV}=n\mathrm{RT}
