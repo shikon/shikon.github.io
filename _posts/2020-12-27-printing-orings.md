@@ -63,7 +63,7 @@ Although very interesting it brings in many parameters to be tuned and would onl
 
 Well looking at amazon.de, I didn't get much to choose from. A quick search only gave a few smaller brands and *SainSmart* all3dp was quite positive of this filament. Looking up this filament I found that they had a Ender 3 Cura profile, considering the similarity between Ender 3 and 5 I knew I could take this profile and just use it with little tweaking and I was SOLD. It was cheap too and orange :).
 
-![](https://raw.githubusercontent.com/shikon/shikon.github.io/master/assets/images/firefox_WbcL291AXV.png)
+![](https://raw.githubusercontent.com/shikon/cloudimg/master/typora/firefox_WbcL291AXV.png)
 
 
 
