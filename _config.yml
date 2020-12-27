@@ -9,7 +9,7 @@ title                    : "Shiko"
 title_separator          : "-"
 subtitle                 : "Life is an unique journey"
 name                     : &name "Lan Hu" # &name is a YAML anchor which can be *referenced later
-description              : &description "A flexible Jekyll theme for your blog or site with a minimalist aesthetic."
+description              : &description "Just a random asian's project"
 url                      : https://shikon.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "/" # the subpath of your site, e.g. "/blog"
 repository               : "shikon/shikon.github.io"
