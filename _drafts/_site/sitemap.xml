@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://mmistakes.github.io/minimal-mistakes/post%20formats/post-standard/</loc>
+<lastmod>2010-01-07T00:00:00-05:00</lastmod>
+</url>
+<url>
+<loc>https://mmistakes.github.io/minimal-mistakes/about/</loc>
+<lastmod>2020-12-27T08:56:54-05:00</lastmod>
+</url>
+<url>
+<loc>https://mmistakes.github.io/minimal-mistakes/404.html</loc>
+<lastmod>2020-12-27T08:56:54-05:00</lastmod>
+</url>
+<url>
+<loc>https://mmistakes.github.io/minimal-mistakes/index/</loc>
+<lastmod>2020-12-27T08:56:54-05:00</lastmod>
+</url>
+</urlset>
