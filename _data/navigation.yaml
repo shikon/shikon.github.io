@@ -7,6 +7,6 @@ main:
     url: /year-archive/
   - title: "Tags"
     url: /tags/
-  - title: "External Link"
-    url: https://google.com
+#  - title: "External Link"
+#    url: https://google.com
 
