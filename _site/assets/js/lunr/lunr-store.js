@@ -6,13 +6,13 @@ var store = [{
         "teaser": null
       },{
         "title": "About",
-        "excerpt":"This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at jekyllrb.com You can find the source code for Minima at GitHub: jekyll / minima You can find the source code for Jekyll at GitHub: jekyll...","categories": [],
+        "excerpt":"This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/) You can find the source code for Minima at GitHub: [jekyll][jekyll-organization] / [minima](https://github.com/jekyll/minima) You can find the source code for Jekyll at GitHub: [jekyll][jekyll-organization]...","categories": [],
         "tags": [],
         "url": "/about/",
         "teaser": null
       },{
         "title": "Index",
-        "excerpt":" ","categories": [],
+        "excerpt":"","categories": [],
         "tags": [],
         "url": "/2020/12/27/index.html",
         "teaser": null
