@@ -1,0 +1,12 @@
+main:
+  - title: "About"
+    url: /about/
+  - title: "Categories"
+    url: /categories/
+  - title: "Posts"
+    url: /year-archive/
+  - title: "Tags"
+    url: /tags/
+  - title: "External Link"
+    url: https://google.com
+

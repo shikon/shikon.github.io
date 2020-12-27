@@ -1,5 +1,5 @@
 ---
-layout: splash  
+layout: home 
+header:
+  image: /assets/images/home_flower.jpg
 ---
-
-blabla
