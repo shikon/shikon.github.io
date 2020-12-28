@@ -14,7 +14,7 @@ tags:
 
 Today dad asked me if I could buy an O-ring as he needed one. The situation is as follows, the water drainage has a cup (diameter 9 cm) which seals the sewer air from the environment. It broke so it started to smell, and we all know the sewers are nasty... 
 
-A couple months ago I bought myself a Creality ender 5 3D-printer. Mainly to support my maker hobbies, but maybe covid-19 accelerated this quite expensive purchase. I recently had some severe stringing issues using the stock hot end, therefore I upgraded to a direct-drive setup. Due to lower retraction settings, the stringing issues were solved. One of the main advantages of this upgrade is being able to print flexible filaments. Although, not my main reason now was the perfect moment to excuse myself to buy some flexible filament. Since my dad wanted to replace 2 and have a few backup, I suggested to print them using my 3D-printer.  Googling a O-ring of 9 cm diameter, the costs were about ~€2,- a piece, requiring 6 of them totaled ~ €25,- including shipping. I realized it should be easy to print an O-ring for much less. It was time for some more in-depth research.
+A couple months ago I bought myself a Creality ender 5 3D-printer. Mainly to support my maker hobbies, but maybe covid-19 accelerated this quite expensive purchase. I recently had some severe stringing issues using the stock hot end, therefore I upgraded to a direct-drive setup. Due to lower retraction settings, the stringing issues were solved. One of the main advantages of this upgrade is being able to print flexible filaments. Although, not my main reason, this was the perfect excuse for myself to buy some flexible filament. Since my dad wanted to replace 2 and have a few backup, I suggested to print them using my 3D-printer.  Googling a O-ring of 9 cm diameter, the costs were about ~€2,50- a piece, requiring 6 of them totaled ~ €20,- including shipping. I realized it should be easy to print an O-ring for much less. It was time for some more in-depth research.
 
 # The internet (theory)
 
@@ -71,3 +71,4 @@ Well looking at amazon.de, I didn't get much to choose from. A quick search only
 
 Well I will design a very simple ring in Autodesk Fusion360 and hopefully swapping out the filament will be easy. I might wait for my backup nozzles and separate my nozzles to  their material type. So nozzles X only for PLA, nozzle Y for PETG and nozzle Z for TPU. To be continued....
 
+# Resources
