@@ -8,6 +8,10 @@ toc: true
 
 Fascinated by physics as well as modern devices, I completed my joint BSc. degree in Applied Physics and Electrical Engineering at the Eindhoven University of Technology in 2018. Currently, I am trying to close the gap between circuit design and novel semiconductors during my joint degree in MSc. Applied physics and Electrical Engineering. My current research focusses on novel organic devices to realize in memory computing towards a greener future.
 
+## Goal
+
+It is to log my random projects, this to improve retention of the skills I learn and also to help others. I have found the internet to be a great resource and to contribute to it I want to share my thought processes and take you with me on my journey.
+
 ## Random facts 
 
 - hey
