@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>http://0.0.0.0:4000/first%20steps/hello-world/</loc>
+<loc>https://shikon.github.io/first%20steps/hello-world/</loc>
 <lastmod>2020-12-27T00:00:00-05:00</lastmod>
 </url>
 <url>
-<loc>http://0.0.0.0:4000/3d-printing/printing-orings/</loc>
+<loc>https://shikon.github.io/3d-printing/printing-orings/</loc>
 <lastmod>2020-12-27T00:00:00-05:00</lastmod>
 </url>
 <url>
-<loc>http://0.0.0.0:4000/about/</loc>
+<loc>https://shikon.github.io/3d-printing/drawing-orings/</loc>
+<lastmod>2020-12-28T00:00:00-05:00</lastmod>
+</url>
+<url>
+<loc>https://shikon.github.io/2020-01-02-doing-a-pcb-design/</loc>
+<lastmod>2021-01-03T06:34:42-05:00</lastmod>
+</url>
+<url>
+<loc>https://shikon.github.io/about/</loc>
 <lastmod>2020-12-27T13:51:23-05:00</lastmod>
 </url>
 <url>
-<loc>http://0.0.0.0:4000/categories/</loc>
+<loc>https://shikon.github.io/categories/</loc>
 </url>
 <url>
-<loc>http://0.0.0.0:4000/</loc>
+<loc>https://shikon.github.io/</loc>
 </url>
 </urlset>

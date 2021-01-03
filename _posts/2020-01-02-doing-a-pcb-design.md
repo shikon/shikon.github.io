@@ -1,5 +1,5 @@
 ---
-title: "Drawing O-rings for dad aka printing O-rings for dad part 2"
+title: "Doing a Nixie tube HV supply part (1)"
 toc: true
 toc_sticky: true
 excerpt_separator: "<!--more-->"
