@@ -9,7 +9,7 @@ tags:
   - PCB
   - CAD
   - design
-  -project
+  - project
 ---
 
 # Backstory
