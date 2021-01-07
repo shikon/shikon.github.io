@@ -4,7 +4,7 @@
 
 @charset "utf-8";
 
-img + em {display: block; text-align: center; } //image captions 
+// My custom css  img + em { 	display: block; text-align: center; } //image captions 
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
