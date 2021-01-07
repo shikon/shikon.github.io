@@ -41,9 +41,6 @@ The goal is to create a DC high-voltage supply from a lower voltage supply.  Jus
 
 
 
-```html
-| ![wikitest](https://raw.githubusercontent.com/shikon/cloudimg/master/typora/330px-Impedance_voltage_divider.svg.png) | 
-|:--:| 
-| *Space* |
-```
-
+| ![wikitest](https://raw.githubusercontent.com/shikon/cloudimg/master/typora/330px-Impedance_voltage_divider.svg.png) |
+| :----------------------------------------------------------: |
+| [From wikipedia](https://raw.githubusercontent.com/shikon/cloudimg/master/typora/330px-Impedance_voltage_divider.svg.png) |
