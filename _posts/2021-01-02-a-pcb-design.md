@@ -39,12 +39,11 @@ The goal is to create a DC high-voltage supply from a lower voltage supply.  Jus
 
 *test*
 
-{% capture fig_img %}
-![Foo](https://raw.githubusercontent.com/shikon/cloudimg/master/typora/330px-Impedance_voltage_divider.svg.png)
-{% endcapture %}
 
-<figure>
-  {{ fig_img | markdownify | remove: "<p>" | remove: "</p>" }}
-  <figcaption>[From wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Impedance_voltage_divider.svg/1200px-Impedance_voltage_divider.svg.png).</figcaption>
-</figure>
+
+```html
+| ![wikitest](https://raw.githubusercontent.com/shikon/cloudimg/master/typora/330px-Impedance_voltage_divider.svg.png) | 
+|:--:| 
+| *Space* |
+```
 
