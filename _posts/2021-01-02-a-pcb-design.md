@@ -35,12 +35,7 @@ Having scanned over these great projects it was time to dive into the theory.
 
 The goal is to create a DC high-voltage supply from a lower voltage supply.  Just like climbing a mountain going up is a bit more difficult than going down. An example, a bad one however, is to create a lower voltage is using a so called voltage divider. If the load isn't too heavy its fine but due to the fixed output impedance of the resistive ladder it will be easily disturbed by its load. 
 
-![Wikipedia](https://raw.githubusercontent.com/shikon/cloudimg/master/typora/330px-Impedance_voltage_divider.svg.png)
+![Wikipedia](https://raw.githubusercontent.com/shikon/cloudimg/master/typora/330px-Impedance_voltage_divider.svg.png)*
 
-*test*
+{% include image.html url="https://raw.githubusercontent.com/shikon/cloudimg/master/typora/330px-Impedance_voltage_divider.svg.png" description="[From wikipedia](https://raw.githubusercontent.com/shikon/cloudimg/master/typora/330px-Impedance_voltage_divider.svg.png)" %}
 
-
-
-| ![wikitest](https://raw.githubusercontent.com/shikon/cloudimg/master/typora/330px-Impedance_voltage_divider.svg.png) |
-| :----------------------------------------------------------: |
-| [From wikipedia](https://raw.githubusercontent.com/shikon/cloudimg/master/typora/330px-Impedance_voltage_divider.svg.png) |
