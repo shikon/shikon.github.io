@@ -1,7 +1,7 @@
-#theme                    : minimal-mistakes-jekyll
+theme                    : minimal-mistakes-jekyll
 #remote_theme             : mmistakes/minimal-mistakes
 markdown                 : kramdown
-remote_theme             : "mmistakes/minimal-mistakes@4.21.0"
+#remote_theme             : "mmistakes/minimal-mistakes@4.21.0"
 minimal_mistakes_skin    : "default" #"default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 #Site Settings

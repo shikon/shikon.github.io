@@ -10,7 +10,7 @@ Fascinated by physics as well as modern devices, I started a BSc. degree in Appl
 
 ## Goal
 
-Is to (b)log my random projects, so I can share but also  improve retention of the skills I learn. I have found the internet to be a great resource and would also like to contribute to it I want to share my thought processes and take you with me, on my journey.
+Is to (b)log my random projects, so I can share but also  improve retention of the skills I learn. I have found the internet to be a great resource and would also like to contribute to it. I want to share my thought processes and take you with me, on my journey.
 
 ## Random facts 
 
