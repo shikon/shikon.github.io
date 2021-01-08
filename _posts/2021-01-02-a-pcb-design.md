@@ -37,5 +37,5 @@ The goal is to create a DC high-voltage supply from a lower voltage supply.  Jus
 
 ![Wikipedia](https://raw.githubusercontent.com/shikon/cloudimg/master/typora/330px-Impedance_voltage_divider.svg.png)*
 
-{% include image.html url="https://raw.githubusercontent.com/shikon/cloudimg/master/typora/330px-Impedance_voltage_divider.svg.png" description="[From wikipedia](https://raw.githubusercontent.com/shikon/cloudimg/master/typora/330px-Impedance_voltage_divider.svg.png)" %}
+
 
