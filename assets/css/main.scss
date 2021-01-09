@@ -5,9 +5,11 @@
 @charset "utf-8";
 
 img + em {
-	font-style: normal; 
-	font-size: smaller;
+	display: block;
+	font-style: italic; 
+	font-size: 75%;
 }
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
