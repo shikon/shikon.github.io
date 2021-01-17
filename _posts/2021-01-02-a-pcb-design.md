@@ -10,7 +10,7 @@ tags:
   - CAD
   - design
   - project
-last_modified_at: 2021-01-07T21:00:23+2:00
+last_modified_at: 2021-01-09T17:00:23+2:00
 ---
 
 # Backstory
@@ -42,11 +42,11 @@ But the question was how to go up. Well the most common way to step up a DC volt
 
 ![](https://raw.githubusercontent.com/shikon/cloudimg/master/typora/boost_circuit_v2.png)
 
-The MOSFET acts as an on/off switch. Initially it is switched on, a certain current will set. When it is switched off the current has less way to flow. The only path is to go through the diode and capacitor.  Basically the impedance to the right of inductor has increased, the current want to decrease. However the inductor tries to counter this, the magnetic field it built up doesn't want to change. It will increase the voltage to keep the current the same.  Ohm's law with impedance ($$I = V/Z$$) tells, to keep I the same for larger Z we need to increase V. Indeed the constitutive relation of an inductor, $$V=-L\frac{\mathrm{d}I}{\mathrm{d}t}$$, tells for decreasing current $$\frac{\mathrm{d}I}{\mathrm{d}t}<0$$ , there is a positive voltage, two voltage sources in series add up. This charges the capacitor to higher voltages than the input. In order to prevent the charge from flowing back -which is required to build the voltage on the capacitor- a diode is required. 
+The MOSFET acts as an on/off switch. Initially it is switched on, a certain current will set. When it is switched off, the current has less "way" to flow. The only path is to go through the diode and capacitor.  Basically the impedance to the right of the inductor has increased, the current want to decrease. However the inductor tries to counter this, the magnetic field it built up doesn't want to change. It will increase the voltage to keep the current the same.  Ohm's law with impedance ($$I = V/Z$$) tells, to keep I the same for larger Z we need to increase V. Indeed the constitutive relation of an inductor, $$V=-L\frac{\mathrm{d}I}{\mathrm{d}t}$$, tells for decreasing current $$\frac{\mathrm{d}I}{\mathrm{d}t}<0$$ , there is a positive voltage, two voltage sources in series add up. This charges the capacitor to higher voltages than the input. In order to prevent the charge from flowing back -which is required to build a higher output voltage- a diode is required. 
 
 ## How do we determine the output voltage?
 
-The output voltage is simple for continuous mode (CCM) and more complex when the converter is in discontinuous mode. Discontinuous mode (DCM) commonly occurs under light loads, as the current is low and quickly falls off to zero.  In CCM it is determined by the duty cycle (D<1), $$V_{out}=\frac{V_{in}}{1-D}$$. As said before it is more complex and determined as well by the inductance, the load and switching frequency$$\left(V_{out}=\frac{1+\sqrt{1+\frac{4DR_{load}}{2Lf}}}{2}\right)$$.
+The output voltage is simple for continuous mode (CCM) and more complex when the converter is in discontinuous mode. Discontinuous mode (DCM) commonly occurs under light loads, as the current is low and quickly falls off to zero.  In CCM it is determined solely by the duty cycle (D<1), $$V_{out}=\frac{V_{in}}{1-D}$$. As said before in DCM, it is more complex and determined as well by the inductance, the load and switching frequency$$\left(V_{out}=\frac{1+\sqrt{1+\frac{4DR_{load}}{2Lf}}}{2}\right)$$.
 
 ## CCM VS DCM
 
@@ -71,5 +71,9 @@ Well I don't dislike reading papers so I just googled and came across so called 
 
 ## Is all hope lost?
 
-Do I have to settle with the regular boost topology? I guess. It is very simple and I like simple things, as even the simple things can turn out to be difficult. So Keep It Simple Stupid (KISS). The main element in boost converters is the inductor, there are typically 2 versions. The non-isolated ([Jan Rychter](https://jan.rychter.com/high-voltage-power-supply-for-nixie-tube-projects)) and isolated version ([0x7d](https://0x7d.com/2017/nixie-tube-clock/#Custom_Power_Supply)). The isolated version uses an transformer and doing this has many advantages. It separates the input circuit and output circuit, however the ground is still common. But the intrinsic gain transformers can have is much more interesting for me. Since the power in these converter is going to be below 20 W and that doesn't really require galvanic isolation. The intrinsic gain relaxes various design parameters. The gain of the DC-DC converter is relaxed. Stepping up 12 V to 180 V requires a gain of 15 and this means in CCM mode requires a duty cycle of ~93%. This raises a few issues, boost controllers have a minimum on/off time, a minimum frequency and a maximum duty cycle.
+Do I have to settle with the regular boost topology? I guess. It is very simple and I like simple things, as even the simple things can turn out to be difficult. So Keep It Simple Stupid (KISS). The main element in boost converters is the inductor, there are typically 2 versions. The non-isolated ([see Jan Rychter](https://jan.rychter.com/high-voltage-power-supply-for-nixie-tube-projects)) and isolated version ([0x7d](https://0x7d.com/2017/nixie-tube-clock/#Custom_Power_Supply)). The isolated version uses an transformer and doing this has many advantages. It separates the input circuit and output circuit, however note that the ground is still common. But the intrinsic gain transformers can have is much more interesting for me. Since the power in these converter is going to be below 20 W. Those don't really require galvanic isolation. The intrinsic gain relaxes various design parameters. The gain of the DC-DC converter is relaxed. Stepping up 12 V to 180 V requires a gain of 15 and this means in CCM mode requires a duty cycle of ~93%. This raises a few issues, boost controllers have a minimum on/off time, a minimum frequency and a maximum duty cycle. Lets have a look into this.
+
+# Math?!
+
+Well yeah to do some good engineering, math always plays game.
 

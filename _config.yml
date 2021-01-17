@@ -1,4 +1,4 @@
-theme                    : minimal-mistakes-jekyll
+ theme                    : minimal-mistakes-jekyll
 #remote_theme             : mmistakes/minimal-mistakes
 markdown                 : kramdown
 #remote_theme             : "mmistakes/minimal-mistakes@4.21.0"
