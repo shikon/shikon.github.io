@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
@@ -13,3 +14,19 @@ img + em {
 //@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 //@import "minimal-mistakes"; // main partials
 
+=======
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+
+img + em {
+	display: block;
+	font-style: italic; 
+	font-size: 75%;
+}
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
+>>>>>>> gh-pages
