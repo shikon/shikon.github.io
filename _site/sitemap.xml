@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<<<<<<< HEAD
 <loc>/first%20steps/2020/12/27/hello-world.html</loc>
 <lastmod>2020-12-27T00:00:00+01:00</lastmod>
 </url>
@@ -19,19 +18,5 @@
 </url>
 <url>
 <loc>/</loc>
-=======
-<loc>https://shikon.github.io/first%20steps/hello-world/</loc>
-<lastmod>2020-12-27T00:00:00-05:00</lastmod>
-</url>
-<url>
-<loc>https://shikon.github.io/about/</loc>
-<lastmod>2020-12-27T13:51:23-05:00</lastmod>
-</url>
-<url>
-<loc>https://shikon.github.io/categories/</loc>
-</url>
-<url>
-<loc>https://shikon.github.io/</loc>
->>>>>>> gh-pages
 </url>
 </urlset>

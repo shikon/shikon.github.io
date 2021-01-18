@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 Sitemap: /sitemap.xml
-=======
-Sitemap: https://shikon.github.io/sitemap.xml
->>>>>>> gh-pages
