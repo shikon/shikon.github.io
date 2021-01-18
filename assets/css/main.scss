@@ -10,6 +10,6 @@ img + em {
 	font-size: 75%;
 }
 
-# @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
-# @import "minimal-mistakes"; // main partials
+#@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+#@import "minimal-mistakes"; // main partials
 
