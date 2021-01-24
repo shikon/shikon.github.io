@@ -35,6 +35,7 @@ I will assume you understand:
 - Basics of git, at least how to set it. Such you can send git commands in the terminal
 - Have jekyll already installed and working. If not see for example [this.](http://sgeos.github.io/jekyll/github/freebsd/2016/01/07/creating-a-jekyll-github-pages-blog-and-managing-it-with-freebsd.html)
 - Basic use of unix 
+- Use the bundle command to compile your jekyll website
 
 ## Separating by branching
 
@@ -80,8 +81,8 @@ The complex workflow noted by Dani didn't work out and I am lazy. So we are goin
    
    # Make sure our main code runs only if we push the master branch
    if [ "$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)" == "source" ]; then
-   	# Store the last commit message from master branch
-   	last_message=$(git show -s --format=%s master)
+   	# Store the last commit message from source branch
+   	last_message=$(git show -s --format=%s source)
    
    	# Build our Jekyll site
    	bundle exec jekyll build
