@@ -77,9 +77,6 @@ The complex workflow noted by Dani didn't work out and I am lazy. So we are goin
    # folder of your repo folder, and which will temporarily
    # hold the generated content.
    temp_folder="_source-temp"
-   # assuming your hook is stored in ../myremotegit/.git/hooks need to go back 2 folders
-   cd ..
-   cd ..
    
    # Make sure our main code runs only if we push the master branch
    if [ "$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)" == "source" ]; then
