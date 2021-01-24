@@ -1,5 +1,5 @@
 ---
-title: "Automating jekyll build"
+title: "Automating jekyll build and github hosting"
 toc: true
 toc_sticky: true
 excerpt_separator: "<!--more-->"
