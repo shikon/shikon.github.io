@@ -1,22 +1,16 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your entire site, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# `jekyll serve`. If you change this file, please restart the server process.
-
-theme: minimal-mistakes-jekyll
-
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+ theme                    : minimal-mistakes-jekyll
+#remote_theme             : mmistakes/minimal-mistakes
 markdown                 : kramdown
-# Site Settings
+#remote_theme             : "mmistakes/minimal-mistakes@4.21.0"
+minimal_mistakes_skin    : "default" #"default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
+#Site Settings
 locale                   : "en-US"
 title                    : "Shiko"
 title_separator          : "-"
 subtitle                 : "Life is an unique journey"
-name                     : &name "Michael Rose" # &name is a YAML anchor which can be *referenced later
-description              : &description "Just one of my many random project"
+name                     : &name "Lan Hu" # &name is a YAML anchor which can be *referenced later
+description              : &description "Just a random asian's project"
 url                      : https://shikon.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "/" # the subpath of your site, e.g. "/blog"
 repository               : "shikon/shikon.github.io"
@@ -50,15 +44,15 @@ search                   : true # true, false (default)
 search_full_content      : true # true, false (default)
 search_provider          : algolia # lunr (default), algolia
 algolia:
-  application_id         : QB6HVGBSBA # YOUR_APPLICATION_ID
-  index_name             : minimal_mistakes # YOUR_INDEX_NAME
-  search_only_api_key    : 9d5014e5bbc77372547bce778dfa5663 # YOUR_SEARCH_ONLY_API_KEY
+  application_id         :  # YOUR_APPLICATION_ID
+  index_name             :  # YOUR_INDEX_NAME
+  search_only_api_key    :  # YOUR_SEARCH_ONLY_API_KEY
   powered_by             : true # true (default), false
   files_to_exclude:
     - _posts/2017-11-28-post-exclude-search.md
 
 # SEO Related
-google_site_verification : "UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" # Replace this with your ID, or delete
+google_site_verification : "" # Replace this with your ID, or delete
 bing_site_verification   :
 yandex_site_verification :
 naver_site_verification  :
