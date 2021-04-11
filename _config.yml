@@ -48,7 +48,7 @@ atom_feed:
 
 search                   : true # true, false (default)
 search_full_content      : #true # true, false (default)
-search_provider          : #algolia # lunr (default), algolia
+search_provider          : algolia # lunr (default), algolia
 algolia:
   application_id         : L6XIHWOGZ2 # YOUR_APPLICATION_ID
   index_name             : blog # YOUR_INDEX_NAME
