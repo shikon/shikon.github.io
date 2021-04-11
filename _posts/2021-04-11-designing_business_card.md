@@ -42,7 +42,7 @@ I think adding icons are visually pleasing and is straight to the point. So inst
 
 A simple to use PCB software, from the same company of fusion 360 where I design my 3D-models for a 3D-printer. In order to keep everything scalable, I use vector images which can then be converted using the open-source tool by [Gordon Williams](https://gfwilliams.github.io/svgtoeagle/). The SVG files are put together in inkscape and then converted to EAGLE commands that draws the equivalent inside the EAGLE schematic.
 
-# Why (engineering notes)
+# Why? (or engineering notes)
 
 The core theme of the card is the large balance scale visible at the bottom, in my opinion engineering is all about making decisions and balancing (see what I did here?) their pros and cons. In order to design complex systems you can't optimize every parameter isolated, as it is typically balanced-out/influenced by another parameter. Not to mention that time is not infinite and is a very critical parameter for companies known as time to market. The only solution is to make informed choices which can only be achieved by experience of others or yourself. Me gaining experience in various fields and sharing this is the ultimate goal of this blog.
 
