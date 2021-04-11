@@ -40,7 +40,7 @@ I think adding icons are visually pleasing and is straight to the point. So inst
 
 ## EAGLE a PCB design software
 
-A simple to use PCB software, from the same company of fusion 360 where I design my 3D-models for a 3D-printer. In order to keep everything scalable, I use vector images which can then be converted using the open-source tool by [Gordon Williams](https://gfwilliams.github.io/svgtoeagle/). The SVG files are put together in inkscape and then converted to EAGLE commands that draws the equivalent inside the EAGLE schematic.
+I use EAGLE as my design software since I already use fusion 360 for my for my 3D-printer designs. In order to keep everything scalable, I use vector images which can then be converted using the open-source tool by [Gordon Williams](https://gfwilliams.github.io/svgtoeagle/). The SVG files are put together in inkscape and then converted to EAGLE commands that draws the equivalent inside the EAGLE schematic.
 
 # Why? (or engineering notes)
 
