@@ -75,5 +75,5 @@ Do I have to settle with the regular boost topology? I guess. It is very simple 
 
 # Math?!
 
-Well yeah to do some good engineering, math always plays game.
+Well yeah to do some good engineering, math always plays game. But that will be for part 2.
 

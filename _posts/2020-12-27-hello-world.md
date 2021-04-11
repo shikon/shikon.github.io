@@ -2,11 +2,9 @@
 title: "Hello world!"
 excerpt_separator: "<!--more-->"
 categories:
-  - First steps
+  - electronics
 tags:
-  - Hello world!
-  - first time
-  - standard
+
 ---
 
 The quick brown fox jumped over  the lazy dog...

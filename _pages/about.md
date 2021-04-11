@@ -6,7 +6,7 @@ last_modified_at: 2021-01-07T20:51:23+2:00
 toc: true
 ---
 
-Fascinated by physics as well as modern devices, I started a BSc. degree in Applied Physics and afterwards also Electrical Engineering at the Eindhoven University of Technology. Currently, I am trying to close the gap between circuit design and novel semiconductors during my joint MSc. degree in the same fields.
+Fascinated by physics as well as modern devices, I started a BSc. degree in Applied Physics and afterwards also Electrical Engineering at the Eindhoven University of Technology. Currently, I am trying to close the gap between circuit design and novel semiconductors during my joint MSc. degree in the aforementioned fields.
 
 ## Goal
 
