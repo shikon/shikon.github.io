@@ -1,1 +1,1 @@
-Sitemap: https://shikon.github.io/sitemap.xml
+Sitemap: https://shiko.nl/sitemap.xml
