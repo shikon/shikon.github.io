@@ -38,7 +38,7 @@ I really liked the QR-code in example 1, so I also wanted that in my design. I f
 
 I think adding icons are visually pleasing and is straight to the point. So instead of "just" putting my email on the card, I want to prefix it with an icon. Since I don't want to reinvent the wheel, I looked for these basic icons such as email, phone, LinkedIn and blog. Since I want to use this professionally I had to make sure I wasn't stealing these icons, so I opted to use the site which had the icons under [CCA 4.0](https://fontawesome.com/license), which I downloaded and imported into the PCB design software as-is.
 
-## EAGLE a PCB design software
+## PCB design software
 
 I use EAGLE as my design software since I already use fusion 360 for my for my 3D-printer designs. In order to keep everything scalable, I use vector images which can then be converted using the open-source tool by [Gordon Williams](https://gfwilliams.github.io/svgtoeagle/). The SVG files are put together in inkscape and then converted to EAGLE commands that draws the equivalent inside the EAGLE schematic.
 
