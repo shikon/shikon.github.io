@@ -17,7 +17,7 @@ title_separator          : "-"
 subtitle                 : "Life is an unique journey"
 name                     : &name "Lan Hu" # &name is a YAML anchor which can be *referenced later
 description              : &description "Just one of my many random project"
-url                      : https://shikon.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://shiko.nl # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "/" # the subpath of your site, e.g. "/blog"
 repository               : "shikon/shikon.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -40,8 +40,8 @@ comments:
     theme                : # "github-light" (default), "github-dark"
     issue_term           : # "pathname" (default)
 reCaptcha:
-  siteKey                : # "6LfV0KUaAAAAAARrQ-EAkJFwv7zbxIpfXFoERbdr"
-  secret                 : # "6LfV0KUaAAAAAAP0Xrh7hVB9TfNLWbK0XAe-cMcD"
+  siteKey                : "6LfV0KUaAAAAAARrQ-EAkJFwv7zbxIpfXFoERbdr"
+  secret                 : "6LfV0KUaAAAAAAP0Xrh7hVB9TfNLWbK0XAe-cMcD"
 
 atom_feed:
   path                   : # blank (default) uses feed.xml
@@ -58,7 +58,7 @@ algolia:
     - _posts/2017-11-28-post-exclude-search.md
 
 # SEO Related
-google_site_verification : "" # Replace this with your ID, or delete
+google_site_verification : "UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" # Replace this with your ID, or delete
 bing_site_verification   :
 yandex_site_verification :
 naver_site_verification  :
