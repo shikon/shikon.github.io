@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://shikon.github.io/first%20steps/hello-world/</loc>
+<loc>https://shikon.github.io/electronics/hello-world/</loc>
 <lastmod>2020-12-27T00:00:00-05:00</lastmod>
 </url>
 <url>
@@ -19,6 +19,10 @@
 <url>
 <loc>https://shikon.github.io/programming/automating_jekyll/</loc>
 <lastmod>2021-01-24T00:00:00-05:00</lastmod>
+</url>
+<url>
+<loc>https://shikon.github.io/electronics/designing_business_card/</loc>
+<lastmod>2021-04-11T00:00:00-04:00</lastmod>
 </url>
 <url>
 <loc>https://shikon.github.io/about/</loc>
