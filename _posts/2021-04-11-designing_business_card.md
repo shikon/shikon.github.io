@@ -46,9 +46,9 @@ I use EAGLE as my design software since I already use fusion 360 for my for my 3
 
 The core theme of the card is the large balance scale visible at the bottom, in my opinion engineering is all about making decisions and balancing (see what I did here?) their pros and cons. In order to design complex systems you can't optimize every parameter isolated, as it is typically balanced-out/influenced by another parameter. Not to mention that time is not infinite and is a very critical parameter for companies known as time to market. The only solution is to make informed choices which can only be achieved by experience of others or yourself. Me gaining experience in various fields and sharing this is the ultimate goal of this blog.
 
-The scale, is built from drawing the scale in a metal layer, and keeping the background blank. Creating contrast in depth and forming the scale.
+The scale, is built from drawing the scale in a metal layer, and keeping the background blank. Creating contrast with depth and forming the scale image.
 
-Continuing, in the scale you will find 2 QR-codes, LinkedIn (left) and this blog (right). I opted to use large amount or error correction, since I knew I would put an image inside the QR code and the inaccuracies of silkscreen could influence the readability of the code. This did greatly increase the size of the QR-code, however I was not heavily constrained in useable area. Some people instead sue a NFC chip to forward their websites, however I did not find the added complexity of soldering a chip and using the whole back for the antenna worth conveying something that can be easily achieved with a QR-code. Also is cheaper and more likely to be used as there are more smartphones with a camera to read the QR-code than smartphones with a NFC-chip.
+Continuing, in the scale you will find 2 QR-codes, LinkedIn (left) and this blog (right). I opted to use large amount of error correction, since I knew I would put an image inside the QR code and the inaccuracies of silkscreen could influence the readability of the code. This did greatly increase the size of the QR-code, however I was not heavily constrained in useable area. Some people instead use a NFC chip to forward their websites, however I did not find the added complexity of soldering a chip and using the whole back for the antenna worth conveying something that can be easily achieved with a QR-code. Also is cheaper and more likely to be used as there are more smartphones with a camera to read the QR-code than smartphones with a NFC-chip.
 
 It also features a paperclip, this is one of the features I wanted to add. Because, I can imagine that recruiters are people who might want to deal with a paper-CV during an interview. A paper clip would be great to hold it together.
 
@@ -62,7 +62,7 @@ Finally, when manufacturing this PCB I wanted it to feel professional and luxuri
 
 Did I learn a lot? Yes I did.
 
-I think I used EAGLE in ways it wasn't meant to be, but it all worked fine and showed me the limitations (no built-in support to import SVG images) but also the possibilities (a PCB design with no electrical components!). 
+I think I used EAGLE in ways it wasn't designed to be, but it all worked fine and showed me the limitations (no built-in support to import SVG images) but also the possibilities (a PCB design with no electrical components!). 
 
 I hope this post now motivated you also to create your own awesome PCB business card!
 
