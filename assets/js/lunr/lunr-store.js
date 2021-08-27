@@ -34,4 +34,10 @@ var store = [{
         "tags": ["PCB","CAD","design"],
         "url": "https://shiko.nl/electronics/designing_business_card/",
         "teaser": null
+      },{
+        "title": null,
+        "excerpt":"From need to idea to solution After upgrading my computer with the new Ryzen 5800x series, the new motherboard did not include a header to connect my water temperature sensor. This lead the control of my fans to be limited to the temperature sensor inside the processor. This would be...","categories": [],
+        "tags": null,
+        "url": "https://shiko.nl/2021-08-27-pwm-fan-controller/",
+        "teaser": null
       },]

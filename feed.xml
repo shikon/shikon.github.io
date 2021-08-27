@@ -1,4 +1,171 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://shiko.nl/feed.xml" rel="self" type="application/atom+xml" /><link href="https://shiko.nl/" rel="alternate" type="text/html" /><updated>2021-06-08T11:51:53-04:00</updated><id>https://shiko.nl/feed.xml</id><title type="html">Shiko</title><subtitle>Just one of my many random project</subtitle><author><name>Lan Hu</name></author><entry><title type="html">Creating a custom PCB business card with EAGLE</title><link href="https://shiko.nl/electronics/designing_business_card/" rel="alternate" type="text/html" title="Creating a custom PCB business card with EAGLE" /><published>2021-04-11T00:00:00-04:00</published><updated>2021-04-11T00:00:00-04:00</updated><id>https://shiko.nl/electronics/designing_business_card</id><content type="html" xml:base="https://shiko.nl/electronics/designing_business_card/">&lt;h1 id=&quot;an-idea&quot;&gt;An idea&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://shiko.nl/feed.xml" rel="self" type="application/atom+xml" /><link href="https://shiko.nl/" rel="alternate" type="text/html" /><updated>2021-08-27T10:47:56-04:00</updated><id>https://shiko.nl/feed.xml</id><title type="html">Shiko</title><subtitle>Just one of my many random project</subtitle><author><name>Lan Hu</name></author><entry><title type="html"></title><link href="https://shiko.nl/2021-08-27-pwm-fan-controller/" rel="alternate" type="text/html" title="" /><published>2021-08-27T10:47:56-04:00</published><updated>2021-08-27T10:47:56-04:00</updated><id>https://shiko.nl/2021-08-27-pwm-fan-controller</id><content type="html" xml:base="https://shiko.nl/2021-08-27-pwm-fan-controller/">&lt;h1 id=&quot;from-need-to-idea-to-solution&quot;&gt;From need to idea to solution&lt;/h1&gt;
+
+&lt;p&gt;After upgrading my computer with the new Ryzen 5800x series, the new motherboard did not include a header to connect my water temperature sensor. This lead the control of my fans to be limited to the temperature sensor inside the processor. This would be okay if I used regular processor cooling, which has  a small thermal mass and has good thermal conductivity.  However, in my case I have a water cooling where the temperature of the radiator depends on the water temperature and not so much on the current processor temperature. There is a huge delay in the order of minutes before the water heats up due to the large thermal mass it presents. Therefore the control that acts on the same timescale as workload increases (seconds) is an ill fit. Therefore I used the water temperature, which was read out on the previous motherboard. Unfortunately the motherboard that I got on sale did not have this.&lt;/p&gt;
+
+&lt;p&gt;Fortunately fans can easily be controlled by PWM hence this article will guide you to create a very simple and cheap PWM fan controller. But first what is PWM?&lt;/p&gt;
+
+&lt;h1 id=&quot;pulse-width-modulation-pwm-for-fans&quot;&gt;Pulse-Width Modulation (PWM) for fans&lt;/h1&gt;
+
+&lt;p&gt;In order to control the fans the motherboard sends out signals that determine the speed fans should run at. The main reason to reduce the fan speed is to reduce the noise it makes. The lower speed is okay as under low processor load, the amount of heat that should be dissipated is low.&lt;/p&gt;
+
+&lt;p&gt;PWM is a signal and a way of communication which tells the fan at what speed it should run at. It is a digital signal and has a high (on) and low (off) level as shown here.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/shikon/cloudimg/master/typora/4j9UsPWYo5hWc5Y_U_FWimTo1gUOLgLpfqF3OEmYQeDe3wfz6i_qOSvNcTggeu2RuCE46kZcDA&quot; alt=&quot;Taken from Bvsystems.be&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The frequency (f) of the PWM signal depends on the total time ($T_{on}+T_{off}$),
+\(f = \frac{1}{T_{on}+T_{off}}.\)
+ The speed of fan in percentage depends directly on the duty cycle (DT) in percentage,
+\(\mathrm{DT}=\frac{T_{on}}{T_{on}+T_{off}}.\)
+so if DT is 0.6 or 60% the speed of the fan will be 60% of its maximum speed.&lt;/p&gt;
+
+&lt;h1 id=&quot;temperature-of-a-thermistor&quot;&gt;Temperature of a thermistor&lt;/h1&gt;
+
+&lt;p&gt;Okay we know how to create the signal but how do we know what speed the fans should run at. Depending on the amount of noise you allow at a certain water temperature, the water temperature is key. In order to find this out we need to translate the resistance of a thermistor back to a temperature. Typically these have a negative temperature coefficient, meaning the resistance decreases as the temperature increases. Since I do not know the model or make of my thermistor, I hoped  a commonly used model would be a good fit. The temperature ($T$) as function of the resistance ($R_T$) according to the Steinhart-Hart equation. 
+\(\frac{1}{T}=C_1+C_2\ln{R_T}+C_3(\ln{R_T})^3\)
+The other option was the &lt;a href=&quot;https://en.wikipedia.org/wiki/Thermistor#B_or_%CE%B2_parameter_equation&quot;&gt;$\beta-$equation&lt;/a&gt; which is an exponential relationship and can be extended to the Steinhart-Hart equation.&lt;/p&gt;
+
+&lt;h1 id=&quot;requirements-for-the-pwm-fan-controller&quot;&gt;Requirements for the PWM fan controller&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The PWM frequency of computer fans is typically 25 kHz but please check the data sheet.&lt;/li&gt;
+  &lt;li&gt;Read temperature from a thermistor&lt;/li&gt;
+  &lt;li&gt;The speed range for my fans was 30-100%&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;tackling-each-problem-1-by-1&quot;&gt;Tackling each problem 1-by-1&lt;/h1&gt;
+
+&lt;p&gt;I separated the core functionalities of the fan controller into 3 parts.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-microprocessor-choice-and-coding-a-pwm-signal&quot;&gt;1) Microprocessor choice and coding a PWM signal&lt;/h2&gt;
+
+&lt;p&gt;In the beginning of this year I programmed a variable duty cycle on a Arduino nano. Achieving a PWM frequency of 1 MHz is not possible with the built in PWM functionality and neither is it variable at the resolution that I wanted (8-bit). In order to do this I went down one-level and set the registers of the timers. However, my past experience learnt me this took quite some development time. Therefore, this time I opted to use a different microcontroller where I could just use higher-level functions and generate the PWM signal according to my needs as simple as a few lines of code. I found a STM32F103C8T6 (STM32 black pill) lying around in my closet and found &lt;a href=&quot;https://github.com/stm32duino/wiki/wiki/HardwareTimer-library&quot;&gt;this library&lt;/a&gt; that had everything I needed.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-temperature-readout-by-voltage-divider&quot;&gt;2) Temperature readout by voltage divider&lt;/h2&gt;
+
+&lt;p&gt;Just like in one of my &lt;a href=&quot;https://shiko.nl/electronics/a-pcb-design/#working-principle-of-smps&quot;&gt;past articles&lt;/a&gt; I used a voltage divider to find the thermistor resistance. Putting $R_T$ at the position of $R_2$, it can be found from the output voltage as,
+\(R_T = \frac{R_1}{V_{out}}\)
+With $R_1$ a chosen resistance in my case 4.7 k$\Omega$. Since the thermistor model is basically a linearization that is accurate in a certain range, I chose $R_1$  such that it is similar to $R_T$ during computer idle.&lt;/p&gt;
+
+&lt;p&gt;In order to find the coefficients you would take measurements of $R_T$ at for example three different temperatures. Since my sensor was already mounted in the system and it doesn’t have to be very accurate I took a &lt;a href=&quot;https://www.google.com/url?sa=t&amp;amp;rct=j&amp;amp;q=&amp;amp;esrc=s&amp;amp;source=web&amp;amp;cd=&amp;amp;ved=2ahUKEwi6qprQsNHyAhUFmFwKHeLEAGgQFnoECB8QAQ&amp;amp;url=http%3A%2F%2Fwww.bapihvac.com%2Fwp-content%2Fuploads%2F2010%2F11%2FThermistor_10K-2.pdf&amp;amp;usg=AOvVaw0w8p8u6Bg9c-7rXmQ3OiK7&quot;&gt;random&lt;/a&gt; measurement found on the internet for the same kind of thermistor that I had which is a 10 k$\Omega$-thermistor. Plugged 3-points into &lt;a href=&quot;https://www.thinksrs.com/downloads/programs/therm%20calc/ntccalibrator/ntccalculator.html&quot;&gt;this&lt;/a&gt; tool for 25, 50 and 70 $^\circ$ C, which is the range I expect the water to be in and thus the sensor to be exposed to.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-defining-different-speed-ramp-up-ranged-depending-on-temperature&quot;&gt;3) Defining different speed ramp up ranged depending on temperature&lt;/h2&gt;
+
+&lt;p&gt;In order to create a silent system you want initially the fan speed to be low at low temperatures and high at high temperature. But what is low and and what is high? Since my fans can not be run below 30%, this was the lower limit (this is not exactly true but I will discuss this later). In order for heat transfer to occur via convection there needs to be a temperature difference between the radiator ( I assume it equal to it water temperature) and the environment. My room is typically below  30$^\circ$C therefore up to let say a water temperature of 40$^\circ$C the fans run in the lowest setting and then they should gradually increase. This is in my code split into 2 different ramps, in order to keep the system more quiet and when a lot of heat is dumped into the water cooling, the fans will still go to 100%. This point was chosen to be 70$^\circ$C, because the tubes start to melt at 74$^\circ$C according to the manufacturer.&lt;/p&gt;
+
+&lt;h2 id=&quot;extra-true-0-pwm&quot;&gt;Extra) true 0% PWM&lt;/h2&gt;
+
+&lt;p&gt;Sometimes you might want to go lower than 30% or even turn it off to save power but also to prevent noise. I did not do this as this extra step, requires a lot of effort for very little gain in my case. However should you need to do it. This can be achieved by setting the PWM duty-cycle to 0% in the case when water temperature is already below what you like, in my code 40$^\circ$C. Then you would switch off a MOSFET thus set the gate voltage to low or 0 V and when it s above  40$^\circ$C you would turn it on. The MOSFET should then connect between your black wire (anode) from your fan and the anode of your power supply.&lt;/p&gt;
+
+&lt;h1 id=&quot;connections&quot;&gt;Connections&lt;/h1&gt;
+
+&lt;p&gt;Since the connection diagram is quite simple I do it in words. The thermistor has 2 pins (there is no polarity) and should be connected as in the voltage divider, 1 to ground and 1 to $R_1$.  Finally the PWM signal is output at pin PA8 and this should go to the PWM pin as follows,&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/shikon/cloudimg/master/typora/02-1.jpg&quot; alt=&quot;From ekwb.com&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lastly power for the microcontroller can be supplied over the micro-USB.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-final-code&quot;&gt;The final code&lt;/h1&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;Arduino.h&amp;gt;
+#define inLED PB12
+#define PWMpin PA8
+#define SERIAL_PORT Serial1
+#define f_PWM 25000
+#define PWMstatic 30
+#define SAMPLES 100
+
+HardwareSerial Serial1(PA_10, PA_9);
+//Thermistor const
+#define T_waterpin PA7
+int Vo;
+float Rchosen = 4582;
+float logR2, R2, T;
+float c1 = 1.133027435e-03, c2 = 2.334426745e-04, c3 = 0.9074747924e-07;
+
+//code variables
+float Ttest;
+int PWMdynamic = 0, PWMold= 0;
+int  i, Vs;
+bool paused = 0;
+
+//init specifics of the hardware timer and which effectively pin
+TIM_TypeDef *Instance = (TIM_TypeDef *)pinmap_peripheral(digitalPinToPinName(PWMpin), PinMap_PWM);
+uint32_t channel = STM_PIN_CHANNEL(pinmap_function(digitalPinToPinName(PWMpin), PinMap_PWM));
+//Timer object init with previous intel
+HardwareTimer *MyTim = new HardwareTimer(Instance);   // no need to configure pin, it will be done by HardwareTimer configuration
+
+float reading_to_temp(int number, int R1){
+  int temp;
+  R2 = R1 / (1023.0 / (float)number - 1.0);
+  logR2 = log(R2);
+  temp = (1.0 / (c1 + c2*logR2 + c3*logR2*logR2*logR2));
+  temp = temp - 273.15;
+  return temp;
+}
+
+void setup() {
+  pinMode(inLED, OUTPUT);
+  digitalWrite(inLED, LOW);
+  MyTim-&amp;gt;setPWM(channel, PWMpin, f_PWM, PWMstatic);            // 5 Hertz, 10% dutycycle
+}
+
+void loop() {
+  //improve averaging of analogread by oversampling because required speed is only ~ Hz.
+  Vs = 0;
+  for(i = 0; i &amp;lt; SAMPLES; i++){
+    Vs = Vs + analogRead(T_waterpin);
+  }
+  Vo = Vs / SAMPLES;
+  T = reading_to_temp(Vo, Rchosen);
+  Ttest = T;
+  if(Ttest &amp;lt;=40){
+    PWMdynamic = 30;
+    //MyTim-&amp;gt;pause();
+    paused = 1;
+  }
+  else if(paused){
+    paused = 0;
+    //MyTim-&amp;gt;resume();
+  }
+  if(Ttest &amp;gt; 40 &amp;amp;&amp;amp; Ttest &amp;lt;= 60){
+    PWMdynamic = 30 + 25 * (Ttest - 40) / 20;
+  }
+  else if(Ttest &amp;gt; 60 &amp;amp;&amp;amp; Ttest &amp;lt;= 70){
+    PWMdynamic = 55 + 45 * (Ttest - 60) / 10;
+  }
+  else if(Ttest &amp;gt; 70){
+    PWMdynamic = 100;
+  }
+  //hysteresis to keep number of updates small and prevent oscillatory behaviour.
+  if( abs(PWMdynamic - PWMold) &amp;gt; 3){
+    MyTim-&amp;gt;setCaptureCompare(channel, PWMdynamic, PERCENT_COMPARE_FORMAT);
+    PWMold = PWMdynamic;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;final-cost&quot;&gt;Final cost&lt;/h1&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Component&lt;/th&gt;
+      &lt;th&gt;Cost ($\euro$)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Resistor 4k7&lt;/td&gt;
+      &lt;td&gt;0.01/free&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Black pill (STM32F1)&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.aliexpress.com/item/1005003127544969.html?spm=a2g0o.productlist.0.0.4c7e206063NLMD&amp;amp;algo_pvid=0c396bde-c6ff-4e7c-a00f-647e6da82627&amp;amp;algo_exp_id=0c396bde-c6ff-4e7c-a00f-647e6da82627-0&quot;&gt;3.63&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Any other STM32 series MCU would work as long as it is supported by the library. It seems my version of black pill is end of life, the new version would work also. Please be careful for the pin assignment, which could be different.&lt;/p&gt;</content><author><name>Lan Hu</name></author></entry><entry><title type="html">Creating a custom PCB business card with EAGLE</title><link href="https://shiko.nl/electronics/designing_business_card/" rel="alternate" type="text/html" title="Creating a custom PCB business card with EAGLE" /><published>2021-04-11T00:00:00-04:00</published><updated>2021-04-11T00:00:00-04:00</updated><id>https://shiko.nl/electronics/designing_business_card</id><content type="html" xml:base="https://shiko.nl/electronics/designing_business_card/">&lt;h1 id=&quot;an-idea&quot;&gt;An idea&lt;/h1&gt;
 
 &lt;p&gt;I have looked into making my own business cards multiple times. They would be useful to carry with you just in case. However I never came up with something unique that would be nice and presentable on a piece of nice luxury paper. However, while browsing for ideas, I did find nice examples which replaced the paper for a PCB.  This was really cool, however doing PCB designs weren’t a thing I was able to do a couple years ago.  Now I recently got more experienced with it and I am about to graduate, it was a perfect time to do my own design.&lt;/p&gt;
 
@@ -290,8 +457,7 @@ fi
 
 &lt;h1 id=&quot;ps&quot;&gt;PS&lt;/h1&gt;
 
-&lt;p&gt;Oh since probably nobody reads this blog yet, I am not going to bother yet/I do not know how I am going to implement this. But these files can be made available, for now just shoot me a mail!&lt;/p&gt;</content><author><name>Lan Hu</name></author><category term="3D-printing" /><category term="first time" /><category term="fusion360" /><category term="CAD tool" /><summary type="html">Practicalities… While waiting for my Sainsmart 3D TPU filament to arrive, I still needed some other parts before I could start the printing. That is a CAD drawing of such O-ring. I thought I would finish this in a couple of minutes, I mean how hard could it be? I simply draw a ring and that’s it. Always, in practice or in reality if you want, it does not come easy. At least if you are unexperienced, things you know how to, well… you know how to. Therefore they are easy :). O-ring or square-ring? First I started with two circles, and then you would extrude it up a little to get a 3D part. Circles are 2D as they “live” in a plane. If you could pull it up well then you would end up with a sort of squished cylinder and it becomes 3D! Something like below. But then I realized in my situation I would prefer not to have 2 “flat” sides. Which ends up to be more of a square ring. To mimic a real O-ring both sides would’ve have been well round and like a circle, but this is unpractical for a 3D-printer. Since it prints on a flat surface, one side eventually ends up flat. Therefore, it would be stupid to draw it round. Well you could try, but that would mean the following printed layers have to “fly”. This is called overhang and while it allows for some I might as well just draw it flat as in my use case it would be perfectly fine. The previous method was not what I wanted exactly, as I end up with 2 flat surfaces, well my next method was to draw a circle and cut it in half, let this rotate over an axis that such far away it is equal to the inner radius I want ~4.5cm. So I start of drawing a circle in the origin…. This was a bad plan. Somehow I could not move it, well because fusion fixes/constraints it to the origin. After some googling I found this out, and it was suggested to remove this constraint, however trying to do this didn’t help. I gave up and just drew another circle but not taking the origin at the center of the circle. I ended up with something that looked quite decent. Oh I also added some fillets, what are those? Well those nice roundings, at the left and right corner. Ah remember what I said about not being able to print flying things? Yeah maybe the overhang angle is a bit too aggressive. Also maybe I want it to be a bit thicker, lets add a square to the bottom. Here we go. Now we move it away from the origin ~4.5 cm and revolve and we end up with something that is looking promising. What now? Well I exported the file as a STL, next I will set the Cura profile and slice it and test both “O-ring” designs. The one with fillets and one with a square. Also I designed the width of the O-ring to be 5 mm, from the CAD program it seems to be a bit too wide. I just randomly chose this as it seemed to be quite okay. But I might redesign it for 4 mm, or smaller. As I am a real fusion360 noob, I do not know how to make it parametric. That means I tell the program, that the things I draw can be varied, and just changing this number somewhere in the program which I do not know yet. I can easily adjust various dimensions of the object. Some important parameters here would be: inner diameter, width and height. That is the next thing to learn. PS Oh since probably nobody reads this blog yet, I am not going to bother yet/I do not know how I am going to implement this. But these files can be made available, for now just shoot me a mail!</summary></entry><entry><title type="html">Hello world!</title><link href="https://shiko.nl/electronics/hello-world/" rel="alternate" type="text/html" title="Hello world!" /><published>2020-12-27T00:00:00-05:00</published><updated>2020-12-27T00:00:00-05:00</updated><id>https://shiko.nl/electronics/hello-world</id><content type="html" xml:base="https://shiko.nl/electronics/hello-world/">&lt;p&gt;The quick brown fox jumped over  the lazy dog…
-This is my first test post.&lt;/p&gt;</content><author><name>Lan Hu</name></author><category term="electronics" /><summary type="html">The quick brown fox jumped over the lazy dog… This is my first test post.</summary></entry><entry><title type="html">Printing O-rings for dad</title><link href="https://shiko.nl/3d-printing/printing-orings/" rel="alternate" type="text/html" title="Printing O-rings for dad" /><published>2020-12-27T00:00:00-05:00</published><updated>2020-12-27T00:00:00-05:00</updated><id>https://shiko.nl/3d-printing/printing-orings</id><content type="html" xml:base="https://shiko.nl/3d-printing/printing-orings/">&lt;h1 id=&quot;backstory&quot;&gt;Backstory&lt;/h1&gt;
+&lt;p&gt;Oh since probably nobody reads this blog yet, I am not going to bother yet/I do not know how I am going to implement this. But these files can be made available, for now just shoot me a mail!&lt;/p&gt;</content><author><name>Lan Hu</name></author><category term="3D-printing" /><category term="first time" /><category term="fusion360" /><category term="CAD tool" /><summary type="html">Practicalities… While waiting for my Sainsmart 3D TPU filament to arrive, I still needed some other parts before I could start the printing. That is a CAD drawing of such O-ring. I thought I would finish this in a couple of minutes, I mean how hard could it be? I simply draw a ring and that’s it. Always, in practice or in reality if you want, it does not come easy. At least if you are unexperienced, things you know how to, well… you know how to. Therefore they are easy :). O-ring or square-ring? First I started with two circles, and then you would extrude it up a little to get a 3D part. Circles are 2D as they “live” in a plane. If you could pull it up well then you would end up with a sort of squished cylinder and it becomes 3D! Something like below. But then I realized in my situation I would prefer not to have 2 “flat” sides. Which ends up to be more of a square ring. To mimic a real O-ring both sides would’ve have been well round and like a circle, but this is unpractical for a 3D-printer. Since it prints on a flat surface, one side eventually ends up flat. Therefore, it would be stupid to draw it round. Well you could try, but that would mean the following printed layers have to “fly”. This is called overhang and while it allows for some I might as well just draw it flat as in my use case it would be perfectly fine. The previous method was not what I wanted exactly, as I end up with 2 flat surfaces, well my next method was to draw a circle and cut it in half, let this rotate over an axis that such far away it is equal to the inner radius I want ~4.5cm. So I start of drawing a circle in the origin…. This was a bad plan. Somehow I could not move it, well because fusion fixes/constraints it to the origin. After some googling I found this out, and it was suggested to remove this constraint, however trying to do this didn’t help. I gave up and just drew another circle but not taking the origin at the center of the circle. I ended up with something that looked quite decent. Oh I also added some fillets, what are those? Well those nice roundings, at the left and right corner. Ah remember what I said about not being able to print flying things? Yeah maybe the overhang angle is a bit too aggressive. Also maybe I want it to be a bit thicker, lets add a square to the bottom. Here we go. Now we move it away from the origin ~4.5 cm and revolve and we end up with something that is looking promising. What now? Well I exported the file as a STL, next I will set the Cura profile and slice it and test both “O-ring” designs. The one with fillets and one with a square. Also I designed the width of the O-ring to be 5 mm, from the CAD program it seems to be a bit too wide. I just randomly chose this as it seemed to be quite okay. But I might redesign it for 4 mm, or smaller. As I am a real fusion360 noob, I do not know how to make it parametric. That means I tell the program, that the things I draw can be varied, and just changing this number somewhere in the program which I do not know yet. I can easily adjust various dimensions of the object. Some important parameters here would be: inner diameter, width and height. That is the next thing to learn. PS Oh since probably nobody reads this blog yet, I am not going to bother yet/I do not know how I am going to implement this. But these files can be made available, for now just shoot me a mail!</summary></entry><entry><title type="html">Printing O-rings for dad</title><link href="https://shiko.nl/3d-printing/printing-orings/" rel="alternate" type="text/html" title="Printing O-rings for dad" /><published>2020-12-27T00:00:00-05:00</published><updated>2020-12-27T00:00:00-05:00</updated><id>https://shiko.nl/3d-printing/printing-orings</id><content type="html" xml:base="https://shiko.nl/3d-printing/printing-orings/">&lt;h1 id=&quot;backstory&quot;&gt;Backstory&lt;/h1&gt;
 
 &lt;p&gt;Today dad asked me if I could buy an O-ring as he needed one. The situation is as follows, the water drainage has a cup (diameter 9 cm) which seals the sewer air from the environment. It broke so it started to smell, and we all know the sewers are nasty…&lt;/p&gt;
 
@@ -352,4 +518,5 @@ with P the pressure, V the volume, n the amount of substance, R the gas constant
 
 &lt;p&gt;Well I will design a very simple ring in Autodesk Fusion360 and hopefully swapping out the filament will be easy. I might wait for my backup nozzles and separate my nozzles to  their material type. So nozzles X only for PLA, nozzle Y for PETG and nozzle Z for TPU. To be continued….&lt;/p&gt;
 
-&lt;h1 id=&quot;resources&quot;&gt;Resources&lt;/h1&gt;</content><author><name>Lan Hu</name></author><category term="3D-printing" /><category term="first time" /><category term="standard" /><summary type="html">Backstory Today dad asked me if I could buy an O-ring as he needed one. The situation is as follows, the water drainage has a cup (diameter 9 cm) which seals the sewer air from the environment. It broke so it started to smell, and we all know the sewers are nasty… A couple months ago I bought myself a Creality ender 5 3D-printer. Mainly to support my maker hobbies, but maybe covid-19 accelerated this quite expensive purchase. I recently had some severe stringing issues using the stock hot end, therefore I upgraded to a direct-drive setup. Due to lower retraction settings, the stringing issues were solved. One of the main advantages of this upgrade is being able to print flexible filaments. Although, not my main reason, this was the perfect excuse for myself to buy some flexible filament. Since my dad wanted to replace 2 and have a few backup, I suggested to print them using my 3D-printer. Googling a O-ring of 9 cm diameter, the costs were about ~€2,50- a piece, requiring 6 of them totaled ~ €20,- including shipping. I realized it should be easy to print an O-ring for much less. It was time for some more in-depth research. The internet (theory) I am a huge fan of the internet, you type in a few keywords in google and you get loads of information. So the search started with googling TPU filament, and the first hit was a post from www.all3dp.com, which I quite like. Their posts are quite neat, comprehensive and a overall good read. I read a small part about TPE’s which TPU is a subclass of TPE. Due to the huge popularity and success of TPU, TPE faded into the background, hence I didn’t concern me over these materials anymore. Now I needed to check a few things whether it was possible to print it with my machine. Mainly I was concerned about the printing temperatures and adhesion. I needed the following requirements, Requirements Nozzle temperature: &amp;lt;285 °C (limited by hot end) Warping: Minimal Shrinkage: Minimal Flexibility: Very high Cura profile Amazon available In order to have a successful print the material should show low warping and shrinkage, this makes it easier and more fault-tolerant. Flexibility speaks for itself here… And to accelerate the time for product a pre-configured Cura profile by the manufacturer or other makers is highly preferred. Lastly, if possible I should be able to buy it from Amazon, as the shipping with prime is free and saves me money. TPU brands One of the things I have learnt the hard way is to never go for the cheapest filament. I would not say the cheaper filaments are bad, but you pay in your time of setting it up and calibrating it. Hence my preference for an available print profile. The article discussed the following series of TPU’s, MatterHackers Pro NinjaTek NinjaFlex NinjaTek Cheetah NinjaTek Armadillo Fillamentum Flexfill PolyFlex SainSmart All with varying properties, the main important parameter for me here was the hardness. All of them were such that they are decent flexible filaments, this can be seen by the elongation at break. Another interesting filament was colorFabb’s varioshore. By changing the print settings one could tune the flexibility of this material. Its principle of working is, there is an additive in the filament which expands as a gas and introduces bubbles into the material. High school chemistry tells that the hotter one warms up a substance the larger its volume. Using the Ideal gas law, \(\mathrm{PV}=n\mathrm{RT}\) with P the pressure, V the volume, n the amount of substance, R the gas constant and T the temperature. These pore (gas bubbles) sizes determine then the flexibility of the final print. Although very interesting it brings in many parameters to be tuned and would only complicate the design of this simple element. And therefore require more time. It is not too expensive for ~€50,- a 800g spool. Amazon Well looking at amazon.de, I didn’t get much to choose from. A quick search only gave a few smaller brands and SainSmart all3dp was quite positive of this filament. Looking up this filament I found that they had a Ender 3 Cura profile, considering the similarity between Ender 3 and 5 I knew I could take this profile and just use it with little tweaking and I was SOLD. It was cheap too and orange :). What now? Well I will design a very simple ring in Autodesk Fusion360 and hopefully swapping out the filament will be easy. I might wait for my backup nozzles and separate my nozzles to their material type. So nozzles X only for PLA, nozzle Y for PETG and nozzle Z for TPU. To be continued…. Resources</summary></entry></feed>
+&lt;h1 id=&quot;resources&quot;&gt;Resources&lt;/h1&gt;</content><author><name>Lan Hu</name></author><category term="3D-printing" /><category term="first time" /><category term="standard" /><summary type="html">Backstory Today dad asked me if I could buy an O-ring as he needed one. The situation is as follows, the water drainage has a cup (diameter 9 cm) which seals the sewer air from the environment. It broke so it started to smell, and we all know the sewers are nasty… A couple months ago I bought myself a Creality ender 5 3D-printer. Mainly to support my maker hobbies, but maybe covid-19 accelerated this quite expensive purchase. I recently had some severe stringing issues using the stock hot end, therefore I upgraded to a direct-drive setup. Due to lower retraction settings, the stringing issues were solved. One of the main advantages of this upgrade is being able to print flexible filaments. Although, not my main reason, this was the perfect excuse for myself to buy some flexible filament. Since my dad wanted to replace 2 and have a few backup, I suggested to print them using my 3D-printer. Googling a O-ring of 9 cm diameter, the costs were about ~€2,50- a piece, requiring 6 of them totaled ~ €20,- including shipping. I realized it should be easy to print an O-ring for much less. It was time for some more in-depth research. The internet (theory) I am a huge fan of the internet, you type in a few keywords in google and you get loads of information. So the search started with googling TPU filament, and the first hit was a post from www.all3dp.com, which I quite like. Their posts are quite neat, comprehensive and a overall good read. I read a small part about TPE’s which TPU is a subclass of TPE. Due to the huge popularity and success of TPU, TPE faded into the background, hence I didn’t concern me over these materials anymore. Now I needed to check a few things whether it was possible to print it with my machine. Mainly I was concerned about the printing temperatures and adhesion. I needed the following requirements, Requirements Nozzle temperature: &amp;lt;285 °C (limited by hot end) Warping: Minimal Shrinkage: Minimal Flexibility: Very high Cura profile Amazon available In order to have a successful print the material should show low warping and shrinkage, this makes it easier and more fault-tolerant. Flexibility speaks for itself here… And to accelerate the time for product a pre-configured Cura profile by the manufacturer or other makers is highly preferred. Lastly, if possible I should be able to buy it from Amazon, as the shipping with prime is free and saves me money. TPU brands One of the things I have learnt the hard way is to never go for the cheapest filament. I would not say the cheaper filaments are bad, but you pay in your time of setting it up and calibrating it. Hence my preference for an available print profile. The article discussed the following series of TPU’s, MatterHackers Pro NinjaTek NinjaFlex NinjaTek Cheetah NinjaTek Armadillo Fillamentum Flexfill PolyFlex SainSmart All with varying properties, the main important parameter for me here was the hardness. All of them were such that they are decent flexible filaments, this can be seen by the elongation at break. Another interesting filament was colorFabb’s varioshore. By changing the print settings one could tune the flexibility of this material. Its principle of working is, there is an additive in the filament which expands as a gas and introduces bubbles into the material. High school chemistry tells that the hotter one warms up a substance the larger its volume. Using the Ideal gas law, \(\mathrm{PV}=n\mathrm{RT}\) with P the pressure, V the volume, n the amount of substance, R the gas constant and T the temperature. These pore (gas bubbles) sizes determine then the flexibility of the final print. Although very interesting it brings in many parameters to be tuned and would only complicate the design of this simple element. And therefore require more time. It is not too expensive for ~€50,- a 800g spool. Amazon Well looking at amazon.de, I didn’t get much to choose from. A quick search only gave a few smaller brands and SainSmart all3dp was quite positive of this filament. Looking up this filament I found that they had a Ender 3 Cura profile, considering the similarity between Ender 3 and 5 I knew I could take this profile and just use it with little tweaking and I was SOLD. It was cheap too and orange :). What now? Well I will design a very simple ring in Autodesk Fusion360 and hopefully swapping out the filament will be easy. I might wait for my backup nozzles and separate my nozzles to their material type. So nozzles X only for PLA, nozzle Y for PETG and nozzle Z for TPU. To be continued…. Resources</summary></entry><entry><title type="html">Hello world!</title><link href="https://shiko.nl/electronics/hello-world/" rel="alternate" type="text/html" title="Hello world!" /><published>2020-12-27T00:00:00-05:00</published><updated>2020-12-27T00:00:00-05:00</updated><id>https://shiko.nl/electronics/hello-world</id><content type="html" xml:base="https://shiko.nl/electronics/hello-world/">&lt;p&gt;The quick brown fox jumped over  the lazy dog…
+This is my first test post.&lt;/p&gt;</content><author><name>Lan Hu</name></author><category term="electronics" /><summary type="html">The quick brown fox jumped over the lazy dog… This is my first test post.</summary></entry></feed>
