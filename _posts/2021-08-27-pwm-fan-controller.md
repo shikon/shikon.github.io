@@ -3,8 +3,7 @@ title: "Creating a simple and cheap fan controller"
 toc: true
 toc_sticky: true
 header:
-  image:
-https://raw.githubusercontent.com/shikon/cloudimg/master/typora/photo_2021-08-27_16-36-56.jpg
+  image: https://raw.githubusercontent.com/shikon/cloudimg/master/typora/02-1.jpg
 excerpt_separator: "<!--more-->"
 categories:
   - electronics
