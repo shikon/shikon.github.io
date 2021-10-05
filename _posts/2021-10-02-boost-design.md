@@ -12,11 +12,11 @@ tags:
   - design
 ---
 
-# The design WORKS
+# The 160 V Nixie power supply design WORKS
 
 Let's firstly state the design you will read works without issue. The high voltage nixie power supply has been working in my nixie tube clock (this will be a post later) for about half a year. No issues, as expected from the efficiency and the negligible heating of the components. I have to admit, it rarely happens that a design works on the first try without some modifications...
 
-# The high-voltage supply has an efficiency of 87%
+# The Nixie tube power supply with an efficiency of 87%
 
 High efficiency is important because a low efficiency implies that the circuit will become hot. Luckily this is not the case due to the good efficiency of 87% at 12 V input. And only ~13% of the energy put into the circuit is turned into heat. 
 I loaded the circuit with various resistors at a 12 V input, the results are summarized in the table below. With V for voltage, I for current, P for Power, and Eff for efficiency.
