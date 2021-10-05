@@ -12,17 +12,15 @@ tags:
   - design
 ---
 
-# From need to idea to solution
+# From the need to the idea to the solution
 
-After upgrading my computer with the new Ryzen 5800x series, the new motherboard did not include a header to connect my water temperature sensor. This lead the control of my fans to be limited to the temperature sensor inside the processor. This would be okay if I used regular processor cooling, which has  a small thermal mass and has good thermal conductivity.  However, in my case I have a water cooling where the temperature of the radiator depends on the water temperature and not so much on the current processor temperature. There is a huge delay in the order of minutes before the water heats up due to the large thermal mass it presents. Therefore the control that acts on the same timescale as workload increases (seconds) is an ill fit. Therefore I used the water temperature, which was read out on the previous motherboard. Unfortunately the motherboard that I got on sale did not have this. 
-
-Fortunately fans can easily be controlled by PWM hence this article will guide you to create a very simple and cheap PWM fan controller. But first what is PWM?
+After upgrading my computer with the new Ryzen 5800x series, the new motherboard did not include a header to connect my water temperature sensor. This lead the control of my fans to be limited to the temperature sensor inside the processor. This would be okay if I used regular processor cooling, which has a small thermal mass and has good thermal conductivity. However, in my case, I have a water cooling where the temperature of the radiator depends on the water temperature and not so much on the current processor temperature. There is a huge delay in the order of minutes before the water heats up due to the large thermal mass it presents. Therefore the control that acts on the same timescale as workload increases (seconds) is an ill fit. Therefore I used the water temperature, which was read out on the previous motherboard. Unfortunately, the motherboard that I got on sale did not have this. 
+Fortunately, fans can easily be controlled by PWM hence this article will guide you to create a very simple and cheap PWM fan controller. But first what is PWM?
 
 # Pulse-Width Modulation (PWM) for fans
 
-In order to control the fans the motherboard sends out signals that determine the speed fans should run at. The main reason to reduce the fan speed is to reduce the noise it makes. The lower speed is okay as under low processor load, the amount of heat that should be dissipated is low.
-
-PWM is a signal and a way of communication which tells the fan at what speed it should run at. It is a digital signal and has a high (on) and low (off) level as shown here.
+To control the fans the motherboard sends out signals that determine the speed fans should run at. The main reason to reduce the fan speed is to reduce the noise it makes. The lower speed is okay as, under a low processor load, the amount of heat that should be dissipated is low.
+PWM is a signal and a way of communication that tells the fan at what speed it should run. It is a digital signal and has a high (on) and low (off) level as shown here.
 
 ![Taken from Bvsystems.be](https://raw.githubusercontent.com/shikon/cloudimg/master/typora/4j9UsPWYo5hWc5Y_U_FWimTo1gUOLgLpfqF3OEmYQeDe3wfz6i_qOSvNcTggeu2RuCE46kZcDA)
 
@@ -30,15 +28,15 @@ The frequency (f) of the PWM signal depends on the total time ($T_{on}+T_{off}$)
 $$
 f = \frac{1}{T_{on}+T_{off}}.
 $$
- The speed of fan in percentage depends directly on the duty cycle (DT) in percentage,
+ The speed of the fan in percentage depends directly on the duty cycle (DT) in percentage,
 $$
 \mathrm{DT}=\frac{T_{on}}{T_{on}+T_{off}}.
 $$
 so if DT is 0.6 or 60% the speed of the fan will be 60% of its maximum speed. 
 
-# Temperature of a thermistor
+# The temperature of a thermistor
 
-Okay we know how to create the signal but how do we know what speed the fans should run at. Depending on the amount of noise you allow at a certain water temperature, the water temperature is key. In order to find this out we need to translate the resistance of a thermistor back to a temperature. Typically these have a negative temperature coefficient, meaning the resistance decreases as the temperature increases. Since I do not know the model or make of my thermistor, I hoped  a commonly used model would be a good fit. The temperature ($T$) as function of the resistance ($R_T$) according to the Steinhart-Hart equation. 
+Okay, we know how to create the signal but how do we know what speed the fans should run at. Depending on the amount of noise you allow at a certain water temperature, the water temperature is key. To find this out we need to translate the resistance of a thermistor back to a temperature. Typically these have a negative temperature coefficient, meaning the resistance decreases as the temperature increases. Since I do not know the model or make of my thermistor, I hoped a commonly used model would be a good fit. The temperature ($T$) as function of the resistance ($R_T$) according to the Steinhart-Hart equation. 
 $$
 \frac{1}{T}=C_1+C_2\ln{R_T}+C_3(\ln{R_T})^3
 $$
@@ -46,7 +44,7 @@ The other option was the [$\beta-$equation](https://en.wikipedia.org/wiki/Thermi
 
 # Requirements for the PWM fan controller
 
-1. The PWM frequency of computer fans is typically 25 kHz but please check the data sheet.
+1. The PWM frequency of computer fans is typically 25 kHz but please check the datasheet.
 2. Read temperature from a thermistor
 3. The speed range for my fans was 30-100%
 
@@ -56,7 +54,7 @@ I separated the core functionalities of the fan controller into 3 parts.
 
 ## 1) Microprocessor choice and coding a PWM signal
 
-In the beginning of this year I programmed a variable duty cycle on a Arduino nano. Achieving a PWM frequency of 1 MHz is not possible with the built in PWM functionality and neither is it variable at the resolution that I wanted (8-bit). In order to do this I went down one-level and set the registers of the timers. However, my past experience learnt me this took quite some development time. Therefore, this time I opted to use a different microcontroller where I could just use higher-level functions and generate the PWM signal according to my needs as simple as a few lines of code. I found a STM32F103C8T6 (STM32 black pill) lying around in my closet and found [this library](https://github.com/stm32duino/wiki/wiki/HardwareTimer-library) that had everything I needed.
+At the beginning of this year, I programmed a variable duty cycle on an Arduino nano. Achieving a PWM frequency of 1 MHz is not possible with the built-in PWM functionality and neither is it variable at the resolution that I wanted (8-bit). To do this I went down one level and set the registers of the timers. However, my experience learnt me this took quite some development time. Therefore, this time I opted to use a different microcontroller where I could just use higher-level functions and generate the PWM signal according to my needs as simple as a few lines of code. I found an STM32F103C8T6 (STM32 black pill) lying around in my closet and found [this library](https://github.com/stm32duino/wiki/wiki/HardwareTimer-library) that had everything I needed.
 
 ## 2) Temperature readout by voltage divider
 
@@ -64,25 +62,25 @@ Just like in one of my [past articles](https://shiko.nl/electronics/a-pcb-design
 $$
 R_T = \frac{R_1}{V_{out}}
 $$
-With $R_1$ a chosen resistance in my case 4.7 k$\Omega$. Since the thermistor model is basically a linearization that is accurate in a certain range, I chose $R_1$  such that it is similar to $R_T$ during computer idle.
+With $R_1$ a chosen resistance in my case 4.7 k$\Omega$. Since the thermistor model is a linearization that is accurate in a certain range, I chose $R_1$  such that it is similar to $R_T$ during computer idle.
 
-In order to find the coefficients you would take measurements of $R_T$ at for example three different temperatures. Since my sensor was already mounted in the system and it doesn't have to be very accurate I took a [random](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwi6qprQsNHyAhUFmFwKHeLEAGgQFnoECB8QAQ&url=http%3A%2F%2Fwww.bapihvac.com%2Fwp-content%2Fuploads%2F2010%2F11%2FThermistor_10K-2.pdf&usg=AOvVaw0w8p8u6Bg9c-7rXmQ3OiK7) measurement found on the internet for the same kind of thermistor that I had which is a 10 k$\Omega$-thermistor. Plugged 3-points into [this](https://www.thinksrs.com/downloads/programs/therm%20calc/ntccalibrator/ntccalculator.html) tool for 25, 50 and 70 $^\circ$ C, which is the range I expect the water to be in and thus the sensor to be exposed to.
+To find the coefficients, you would take measurements of $R_T$ at for example three different temperatures. Since my sensor was already mounted in the system and it doesn't have to be very accurate I took a [random](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwi6qprQsNHyAhUFmFwKHeLEAGgQFnoECB8QAQ&url=http%3A%2F%2Fwww.bapihvac.com%2Fwp-content%2Fuploads%2F2010%2F11%2FThermistor_10K-2.pdf&usg=AOvVaw0w8p8u6Bg9c-7rXmQ3OiK7) measurement found on the internet for the same kind of thermistor that I had which is a 10 k$\Omega$-thermistor. Plugged 3-points into [this](https://www.thinksrs.com/downloads/programs/therm%20calc/ntccalibrator/ntccalculator.html) tool for 25, 50, and 70 $^\circ$ C, which is the range I expect the water to be in and thus the sensor to be exposed to.
 
 ## 3) Defining different speed ramp up ranged depending on temperature
 
-In order to create a silent system you want initially the fan speed to be low at low temperatures and high at high temperature. But what is low and and what is high? Since my fans can not be run below 30%, this was the lower limit (this is not exactly true but I will discuss this later). In order for heat transfer to occur via convection there needs to be a temperature difference between the radiator ( I assume it equal to it water temperature) and the environment. My room is typically below  30$^\circ$C therefore up to let say a water temperature of 40$^\circ$C the fans run in the lowest setting and then they should gradually increase. This is in my code split into 2 different ramps, in order to keep the system more quiet and when a lot of heat is dumped into the water cooling, the fans will still go to 100%. This point was chosen to be 70$^\circ$C, because the tubes start to melt at 74$^\circ$C according to the manufacturer.
+To create a silent system, you want initially the fan speed to be low at low temperatures and high at high temperatures. But what is low and what is high? Since my fans can not be run below 30%, this was the lower limit (this is not exactly true but I will discuss this later). For heat transfer to occur via convection, there needs to be a temperature difference between the radiator (I assume it is equal to the water temperature) and the environment. My room is typically below  30$^\circ$C therefore up to let say a water temperature of 40$^\circ$C the fans run in the lowest setting and then they should gradually increase. This is split into 2 different ramps in my code which reduces the fan noise. Whenever a lot of heat is dumped into the water, the fans will still go to 100%. This point was chosen to be 70$^\circ$C, because the tubes start to melt at 74$^\circ$C according to the manufacturer. **Be careful that water will slowly evaporate even below its boiling point of 100 $^\circ$C. **
 
 ## Extra) true 0% PWM
 
-Sometimes you might want to go lower than 30% or even turn it off to save power but also to prevent noise. I did not do this as this extra step, requires a lot of effort for very little gain in my case. However should you need to do it. This can be achieved by setting the PWM duty-cycle to 0% in the case when water temperature is already below what you like, in my code 40$^\circ$C. Then you would switch off a MOSFET thus set the gate voltage to low or 0 V and when it s above  40$^\circ$C you would turn it on. The MOSFET should then connect between your black wire (anode) from your fan and the anode of your power supply.
+Sometimes you might want to go lower than 30% or even turn it off to save power but also to prevent noise. I did not do this as this extra step, requires a lot of effort for very little gain in my case. However, should you want this. The fans can be turned off by setting the PWM duty-cycle to 0%, however most fans don't support this. In the case when water temperature is already below what you like, in my code 40$^\circ$C. You could switch off a MOSFET thus set the gate voltage to low or 0 V and when it s above  40$^\circ$C you would turn it on. The MOSFET should then connect between your black wire (anode) from your fan and the anode of your power supply. In the situation the fans should be off, the electronic circuit is broken by the switch and no current will be able to flow.
 
 # Connections
 
-Since the connection diagram is quite simple I do it in words. The thermistor has 2 pins (there is no polarity) and should be connected as in the voltage divider, 1 to ground and 1 to $R_1$.  Finally the PWM signal is output at pin PA8 and this should go to the PWM pin as follows,
+Since the connection diagram is quite simple I do it in words. The thermistor has 2 pins (there is no polarity) and should be connected as in the voltage divider, 1 to ground and 1 to $R_1$.  Finally, the PWM signal is output at pin PA8 and this should go to the PWM pin as follows,
 
 ![From ekwb.com](https://raw.githubusercontent.com/shikon/cloudimg/master/typora/02-1.jpg)
 
-Lastly power for the microcontroller can be supplied over the micro-USB.
+Lastly, power for the microcontroller can be supplied over the micro-USB.
 
 # The final code
 
