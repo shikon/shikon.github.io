@@ -42,7 +42,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Designing a Nixie HV supply part 2",
-        "excerpt":"The design WORKS Let’s firstly state the design you will read works without issue. The high voltage nixie power supply has been working in my nixie tube clock (this will be a post later) for about half a year. No issues, as expected from the efficiency and the negligible heating...","categories": ["electronics"],
+        "excerpt":"The 160 V Nixie power supply design WORKS Let’s firstly state the design you will read works without issue. The high voltage nixie power supply has been working in my nixie tube clock (this will be a post later) for about half a year. No issues, as expected from the...","categories": ["electronics"],
         "tags": ["PCB","design"],
         "url": "https://shiko.nl/electronics/boost-design/",
         "teaser": null
