@@ -36,8 +36,14 @@ var store = [{
         "teaser": null
       },{
         "title": "Creating a simple and cheap fan controller",
-        "excerpt":"From need to idea to solution After upgrading my computer with the new Ryzen 5800x series, the new motherboard did not include a header to connect my water temperature sensor. This lead the control of my fans to be limited to the temperature sensor inside the processor. This would be...","categories": ["electronics"],
+        "excerpt":"From the need to the idea to the solution After upgrading my computer with the new Ryzen 5800x series, the new motherboard did not include a header to connect my water temperature sensor. This lead the control of my fans to be limited to the temperature sensor inside the processor....","categories": ["electronics"],
         "tags": ["PCB","design"],
         "url": "https://shiko.nl/electronics/pwm-fan-controller/",
+        "teaser": null
+      },{
+        "title": "Designing a Nixie HV supply part 2",
+        "excerpt":"The design WORKS Let’s firstly state the design you will read works without issue. The high voltage nixie power supply has been working in my nixie tube clock (this will be a post later) for about half a year. No issues, as expected from the efficiency and the negligible heating...","categories": ["electronics"],
+        "tags": ["PCB","design"],
+        "url": "https://shiko.nl/electronics/boost-design/",
         "teaser": null
       },]
