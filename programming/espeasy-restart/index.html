@@ -1,0 +1,810 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.21.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Creating a simple and cheap fan controller - Shiko</title>
+<meta name="description" content="A smart home with issues  Recently, I had the issue where my ZigBee network would die every few days. After a lot of debugging and even re-pairing of all my devices, I came to the conclusion my ZigBee coordinator is nearing the end of its life. Strangely enough, if you restart the device it will work… for a few days. Hence, a quick and dirty fix is to restart the device every day. This is not a solution to the problem, but in case of buggy software or just hardware that is not working well can be a temporary solution.  CC2531 ZigBee with ESP8266 as wireless coordinator  In my case the CC2531 which is my ZigBee network coordinator is connected to an ESP8266 as a serial to wireless bridge. Because of that, I run a piece of software called ESP easy to set this up. In here we can set a rule that will restart the device every x minutes of on time as follows.  Enable rules in ESP easy     To enable rules, go to Tools/Advanced and check the Rules checkbox.   Save   Refresh the page   Go to rules and insert the following code          Between Devices and Notifications there will be a rules button           Click on the rules button to go to that page           Insert the following code      On Uptime#MUC1_Uptime do if [Uptime#MUC1_Uptime]&gt;1440  Reboot endif endon                Save           ???           Profit      You can change 1440 to the number of minutes you want. After this amount of time the device will restart.  This is not the final solution  At the moment I am designing my own ZigBee USB stick to work with Zigbee2MQTT (Z2M) or Zigbee Home Assistant (ZHA) which both can be integrated in Home Assistant. However due to chip-supply issues the newer sticks based on TI’s CC2652P are mostly out-of-stock as of this writing. Therefore, I will try to create a simple design and sell my prototypes in the Dutch market.">
+
+
+  <meta name="author" content="Lan Hu">
+  
+  <meta property="article:author" content="Lan Hu">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Shiko">
+<meta property="og:title" content="Creating a simple and cheap fan controller">
+<meta property="og:url" content="https://shiko.nl/programming/espeasy-restart/">
+
+
+  <meta property="og:description" content="A smart home with issues  Recently, I had the issue where my ZigBee network would die every few days. After a lot of debugging and even re-pairing of all my devices, I came to the conclusion my ZigBee coordinator is nearing the end of its life. Strangely enough, if you restart the device it will work… for a few days. Hence, a quick and dirty fix is to restart the device every day. This is not a solution to the problem, but in case of buggy software or just hardware that is not working well can be a temporary solution.  CC2531 ZigBee with ESP8266 as wireless coordinator  In my case the CC2531 which is my ZigBee network coordinator is connected to an ESP8266 as a serial to wireless bridge. Because of that, I run a piece of software called ESP easy to set this up. In here we can set a rule that will restart the device every x minutes of on time as follows.  Enable rules in ESP easy     To enable rules, go to Tools/Advanced and check the Rules checkbox.   Save   Refresh the page   Go to rules and insert the following code          Between Devices and Notifications there will be a rules button           Click on the rules button to go to that page           Insert the following code      On Uptime#MUC1_Uptime do if [Uptime#MUC1_Uptime]&gt;1440  Reboot endif endon                Save           ???           Profit      You can change 1440 to the number of minutes you want. After this amount of time the device will restart.  This is not the final solution  At the moment I am designing my own ZigBee USB stick to work with Zigbee2MQTT (Z2M) or Zigbee Home Assistant (ZHA) which both can be integrated in Home Assistant. However due to chip-supply issues the newer sticks based on TI’s CC2652P are mostly out-of-stock as of this writing. Therefore, I will try to create a simple design and sell my prototypes in the Dutch market.">
+
+
+
+  <meta property="og:image" content="https://raw.githubusercontent.com/shikon/cloudimg/master/typora/background_fan.jpg">
+
+
+
+  <meta name="twitter:site" content="@mmistakes">
+  <meta name="twitter:title" content="Creating a simple and cheap fan controller">
+  <meta name="twitter:description" content="A smart home with issues  Recently, I had the issue where my ZigBee network would die every few days. After a lot of debugging and even re-pairing of all my devices, I came to the conclusion my ZigBee coordinator is nearing the end of its life. Strangely enough, if you restart the device it will work… for a few days. Hence, a quick and dirty fix is to restart the device every day. This is not a solution to the problem, but in case of buggy software or just hardware that is not working well can be a temporary solution.  CC2531 ZigBee with ESP8266 as wireless coordinator  In my case the CC2531 which is my ZigBee network coordinator is connected to an ESP8266 as a serial to wireless bridge. Because of that, I run a piece of software called ESP easy to set this up. In here we can set a rule that will restart the device every x minutes of on time as follows.  Enable rules in ESP easy     To enable rules, go to Tools/Advanced and check the Rules checkbox.   Save   Refresh the page   Go to rules and insert the following code          Between Devices and Notifications there will be a rules button           Click on the rules button to go to that page           Insert the following code      On Uptime#MUC1_Uptime do if [Uptime#MUC1_Uptime]&gt;1440  Reboot endif endon                Save           ???           Profit      You can change 1440 to the number of minutes you want. After this amount of time the device will restart.  This is not the final solution  At the moment I am designing my own ZigBee USB stick to work with Zigbee2MQTT (Z2M) or Zigbee Home Assistant (ZHA) which both can be integrated in Home Assistant. However due to chip-supply issues the newer sticks based on TI’s CC2652P are mostly out-of-stock as of this writing. Therefore, I will try to create a simple design and sell my prototypes in the Dutch market.">
+  <meta name="twitter:url" content="https://shiko.nl/programming/espeasy-restart/">
+
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/shikon/cloudimg/master/typora/background_fan.jpg">
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2021-10-06T00:00:00-04:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://shiko.nl/programming/espeasy-restart/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Lan Hu",
+      "url": "https://shiko.nl/",
+      "sameAs": ["https://twitter.com/mmistakes","https://www.facebook.com/michaelrose"]
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Shiko Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Shiko
+          <span class="site-subtitle">Life is an unique journey</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/year-archive/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero"
+  style=" background-image: url('');"
+>
+  
+    <img src="https://raw.githubusercontent.com/shikon/cloudimg/master/typora/background_fan.jpg" alt="Creating a simple and cheap fan controller" class="page__hero-image">
+  
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/me.jpg" alt="Lan Hu" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Lan Hu</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>A student of life, multi-faceted, tries to master his trades.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Noord-Brabant, NL</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:lan@shiko.nl" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/shikon" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/lanhu" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">Linkedin</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Creating a simple and cheap fan controller">
+    <meta itemprop="description" content="A smart home with issuesRecently, I had the issue where my ZigBee network would die every few days. After a lot of debugging and even re-pairing of all my devices, I came to the conclusion my ZigBee coordinator is nearing the end of its life. Strangely enough, if you restart the device it will work… for a few days. Hence, a quick and dirty fix is to restart the device every day. This is not a solution to the problem, but in case of buggy software or just hardware that is not working well can be a temporary solution.CC2531 ZigBee with ESP8266 as wireless coordinatorIn my case the CC2531 which is my ZigBee network coordinator is connected to an ESP8266 as a serial to wireless bridge. Because of that, I run a piece of software called ESP easy to set this up. In here we can set a rule that will restart the device every x minutes of on time as follows.Enable rules in ESP easy  To enable rules, go to Tools/Advanced and check the Rules checkbox.  Save  Refresh the pageGo to rules and insert the following code      Between Devices and Notifications there will be a rules button        Click on the rules button to go to that page        Insert the following code    On Uptime#MUC1_Uptime doif [Uptime#MUC1_Uptime]&gt;1440 Rebootendifendon            Save        ???        Profit  You can change 1440 to the number of minutes you want. After this amount of time the device will restart.This is not the final solutionAt the moment I am designing my own ZigBee USB stick to work with Zigbee2MQTT (Z2M) or Zigbee Home Assistant (ZHA) which both can be integrated in Home Assistant. However due to chip-supply issues the newer sticks based on TI’s CC2652P are mostly out-of-stock as of this writing. Therefore, I will try to create a simple design and sell my prototypes in the Dutch market.">
+    <meta itemprop="datePublished" content="2021-10-06T00:00:00-04:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Creating a simple and cheap fan controller
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#a-smart-home-with-issues">A smart home with issues</a></li>
+  <li><a href="#cc2531-zigbee-with-esp8266-as-wireless-coordinator">CC2531 ZigBee with ESP8266 as wireless coordinator</a>
+    <ul>
+      <li><a href="#enable-rules-in-esp-easy">Enable rules in ESP easy</a></li>
+      <li><a href="#go-to-rules-and-insert-the-following-code">Go to rules and insert the following code</a></li>
+    </ul>
+  </li>
+  <li><a href="#this-is-not-the-final-solution">This is not the final solution</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <h1 id="a-smart-home-with-issues">A smart home with issues</h1>
+
+<p>Recently, I had the issue where my ZigBee network would die every few days. After a lot of debugging and even re-pairing of all my devices, I came to the conclusion my ZigBee coordinator is nearing the end of its life. Strangely enough, if you restart the device it will work… for a few days. Hence, a quick and dirty fix is to restart the device every day. This is not a solution to the problem, but in case of buggy software or just hardware that is not working well can be a temporary solution.</p>
+
+<h1 id="cc2531-zigbee-with-esp8266-as-wireless-coordinator">CC2531 ZigBee with ESP8266 as wireless coordinator</h1>
+
+<p>In my case the CC2531 which is my ZigBee network coordinator is connected to an ESP8266 as a serial to wireless bridge. Because of that, I run a piece of software called ESP easy to set this up. In here we can set a rule that will restart the device every x minutes of on time as follows.</p>
+
+<h2 id="enable-rules-in-esp-easy">Enable rules in ESP easy</h2>
+
+<ol>
+  <li>To enable rules, go to Tools/Advanced and check the Rules checkbox.</li>
+  <li>Save</li>
+  <li>Refresh the page</li>
+</ol>
+
+<h2 id="go-to-rules-and-insert-the-following-code">Go to rules and insert the following code</h2>
+
+<ol>
+  <li>
+    <p>Between Devices and Notifications there will be a rules button</p>
+  </li>
+  <li>
+    <p>Click on the rules button to go to that page</p>
+  </li>
+  <li>
+    <p>Insert the following code</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>On Uptime#MUC1_Uptime do
+if [Uptime#MUC1_Uptime]&gt;1440
+ Reboot
+endif
+endon
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Save</p>
+  </li>
+  <li>
+    <p>???</p>
+  </li>
+  <li>
+    <p>Profit</p>
+  </li>
+</ol>
+
+<p>You can change 1440 to the number of minutes you want. After this amount of time the device will restart.</p>
+
+<h1 id="this-is-not-the-final-solution">This is not the final solution</h1>
+
+<p>At the moment I am designing my own ZigBee USB stick to work with Zigbee2MQTT (Z2M) or Zigbee Home Assistant (ZHA) which both can be integrated in Home Assistant. However due to chip-supply issues the newer sticks based on TI’s CC2652P are mostly out-of-stock as of this writing. Therefore, I will try to create a simple design and sell my prototypes in the Dutch market.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#smart-home" class="page__taxonomy-item" rel="tag">Smart Home</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#zigbee" class="page__taxonomy-item" rel="tag">ZigBee</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#programming" class="page__taxonomy-item" rel="tag">programming</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-10-06T00:00:00-04:00">October 6, 2021</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?via=mmistakes&text=Creating+a+simple+and+cheap+fan+controller%20https%3A%2F%2Fshiko.nl%2Fprogramming%2Fespeasy-restart%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshiko.nl%2Fprogramming%2Fespeasy-restart%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fshiko.nl%2Fprogramming%2Fespeasy-restart%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/electronics/boost-design/" class="pagination--pager" title="Designing a Nixie HV supply part 2
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/electronics/boost-design/" rel="permalink">Designing a Nixie HV supply part 2
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          10 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">The 160 V Nixie power supply design WORKS
+
+Let’s firstly state the design you will read works without issue. The high voltage nixie power supply has been wor...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/electronics/pwm-fan-controller/" rel="permalink">Creating a simple and cheap fan controller
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          10 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">From the need to the idea to the solution
+
+After upgrading my computer with the new Ryzen 5800x series, the new motherboard did not include a header to conne...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/electronics/designing_business_card/" rel="permalink">Creating a custom PCB business card with EAGLE
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">An idea
+
+I have looked into making my own business cards multiple times. They would be useful to carry with you just in case. However I never came up with so...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programming/automating_jekyll/" rel="permalink">Automating jekyll build and github hosting
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Backstory
+
+As people might have noticed this website runs on jekyll, which is code that creates static websites. Great for my simple blogging use. The easies...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="search-searchbar"></div>
+  <div class="search-hits"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Lan Hu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+<!-- Including InstantSearch.js library and styling -->
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch-theme-algolia.min.css">
+
+<script>
+// Instanciating InstantSearch.js with Algolia credentials
+const search = instantsearch({
+  appId: 'L6XIHWOGZ2',
+  apiKey: '43db23cbf486a7a95d34883d3391bdab',
+  indexName: 'blog',
+  searchParameters: {
+    restrictSearchableAttributes: [
+      'title',
+      'content'
+    ]
+  }
+});
+
+const hitTemplate = function(hit) {
+  const url = hit.url;
+  const title = hit._highlightResult.title.value;
+  const content = hit._highlightResult.html.value;
+
+  return `
+    <div class="list__item">
+      <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+        <h2 class="archive__item-title" itemprop="headline"><a href="/${url}">${title}</a></h2>
+        <div class="archive__item-excerpt" itemprop="description">${content}</div>
+      </article>
+    </div>
+  `;
+}
+
+// Adding searchbar and results widgets
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '.search-searchbar',
+    poweredBy: true,
+    placeholder: 'Enter your search term...'
+  })
+);
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '.search-hits',
+    templates: {
+      item: hitTemplate,
+      empty: 'No results',
+    }
+  })
+);
+
+// Starting the search only when toggle is clicked
+$(document).ready(function () {
+  $(".search__toggle").on("click", function() {
+    if(!search.started) {
+      search.start();
+    }
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" defer
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+
+  </body>
+</html>

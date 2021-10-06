@@ -46,4 +46,10 @@ var store = [{
         "tags": ["PCB","design"],
         "url": "https://shiko.nl/electronics/boost-design/",
         "teaser": null
+      },{
+        "title": "Creating a simple and cheap fan controller",
+        "excerpt":"A smart home with issues Recently, I had the issue where my ZigBee network would die every few days. After a lot of debugging and even re-pairing of all my devices, I came to the conclusion my ZigBee coordinator is nearing the end of its life. Strangely enough, if you...","categories": ["programming"],
+        "tags": ["Smart Home","ZigBee"],
+        "url": "https://shiko.nl/programming/espeasy-restart/",
+        "teaser": null
       },]
