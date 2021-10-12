@@ -23,7 +23,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Shiko">
 <meta property="og:title" content="Creating a simple and cheap fan controller">
-<meta property="og:url" content="https://shiko.nl/https:/shiko.nl/programming/espeasy-restart/">
+<meta property="og:url" content="https://shiko.nl/programming/espeasy-restart/">
 
 
   <meta property="og:description" content="A smart home with issues  Recently, I had the issue where my ZigBee network would die every few days. After a lot of debugging and even re-pairing of all my devices, I came to the conclusion my ZigBee coordinator is nearing the end of its life. Strangely enough, if you restart the device it will work… for a few days. Hence, a quick and dirty fix is to restart the device every day. This is not a solution to the problem, but in case of buggy software or just hardware that is not working well can be a temporary solution.  CC2531 ZigBee with ESP8266 as wireless coordinator  In my case the CC2531 which is my ZigBee network coordinator is connected to an ESP8266 as a serial to wireless bridge. Because of that, I run a piece of software called ESP easy to set this up. In here we can set a rule that will restart the device every x minutes of on time as follows.  Enable rules in ESP easy     To enable rules, go to Tools/Advanced and check the Rules checkbox.   Save   Refresh the page   Go to rules and insert the following code          Between Devices and Notifications there will be a rules button           Click on the rules button to go to that page           Insert the following code      On Uptime#MUC1_Uptime do if [Uptime#MUC1_Uptime]&gt;1440  Reboot endif endon                Save           ???           Profit      You can change 1440 to the number of minutes you want. After this amount of time the device will restart.  This is not the final solution  At the moment I am designing my own ZigBee USB stick to work with Zigbee2MQTT (Z2M) or Zigbee Home Assistant (ZHA) which both can be integrated in Home Assistant. However due to chip-supply issues the newer sticks based on TI’s CC2652P are mostly out-of-stock as of this writing. Therefore, I will try to create a simple design and sell my prototypes in the Dutch market.">
@@ -37,7 +37,7 @@
   <meta name="twitter:site" content="@mmistakes">
   <meta name="twitter:title" content="Creating a simple and cheap fan controller">
   <meta name="twitter:description" content="A smart home with issues  Recently, I had the issue where my ZigBee network would die every few days. After a lot of debugging and even re-pairing of all my devices, I came to the conclusion my ZigBee coordinator is nearing the end of its life. Strangely enough, if you restart the device it will work… for a few days. Hence, a quick and dirty fix is to restart the device every day. This is not a solution to the problem, but in case of buggy software or just hardware that is not working well can be a temporary solution.  CC2531 ZigBee with ESP8266 as wireless coordinator  In my case the CC2531 which is my ZigBee network coordinator is connected to an ESP8266 as a serial to wireless bridge. Because of that, I run a piece of software called ESP easy to set this up. In here we can set a rule that will restart the device every x minutes of on time as follows.  Enable rules in ESP easy     To enable rules, go to Tools/Advanced and check the Rules checkbox.   Save   Refresh the page   Go to rules and insert the following code          Between Devices and Notifications there will be a rules button           Click on the rules button to go to that page           Insert the following code      On Uptime#MUC1_Uptime do if [Uptime#MUC1_Uptime]&gt;1440  Reboot endif endon                Save           ???           Profit      You can change 1440 to the number of minutes you want. After this amount of time the device will restart.  This is not the final solution  At the moment I am designing my own ZigBee USB stick to work with Zigbee2MQTT (Z2M) or Zigbee Home Assistant (ZHA) which both can be integrated in Home Assistant. However due to chip-supply issues the newer sticks based on TI’s CC2652P are mostly out-of-stock as of this writing. Therefore, I will try to create a simple design and sell my prototypes in the Dutch market.">
-  <meta name="twitter:url" content="https://shiko.nl/https:/shiko.nl/programming/espeasy-restart/">
+  <meta name="twitter:url" content="https://shiko.nl/programming/espeasy-restart/">
 
   
     <meta name="twitter:card" content="summary_large_image">
@@ -59,7 +59,7 @@
   
 
 
-<link rel="canonical" href="https://shiko.nl/https:/shiko.nl/programming/espeasy-restart/">
+<link rel="canonical" href="https://shiko.nl/programming/espeasy-restart/">
 
 
 
@@ -450,18 +450,18 @@ endon
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?via=mmistakes&text=Creating+a+simple+and+cheap+fan+controller%20https%3A%2F%2Fshiko.nl%2Fhttps%3A%2Fshiko.nl%2Fprogramming%2Fespeasy-restart%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=mmistakes&text=Creating+a+simple+and+cheap+fan+controller%20https%3A%2F%2Fshiko.nl%2Fprogramming%2Fespeasy-restart%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshiko.nl%2Fhttps%3A%2Fshiko.nl%2Fprogramming%2Fespeasy-restart%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshiko.nl%2Fprogramming%2Fespeasy-restart%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fshiko.nl%2Fhttps%3A%2Fshiko.nl%2Fprogramming%2Fespeasy-restart%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fshiko.nl%2Fprogramming%2Fespeasy-restart%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/https:/shiko.nl/electronics/boost-design/" class="pagination--pager" title="Designing a Nixie HV supply part 2
+      <a href="/electronics/boost-design/" class="pagination--pager" title="Designing a Nixie HV supply part 2
 ">Previous</a>
     
     
@@ -489,7 +489,7 @@ endon
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/https:/shiko.nl/electronics/boost-design/" rel="permalink">Designing a Nixie HV supply part 2
+        <a href="/electronics/boost-design/" rel="permalink">Designing a Nixie HV supply part 2
 </a>
       
     </h2>
@@ -530,7 +530,7 @@ Let’s firstly state the design you will read works without issue. The high vol
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/https:/shiko.nl/electronics/pwm-fan-controller/" rel="permalink">Creating a simple and cheap fan controller
+        <a href="/electronics/pwm-fan-controller/" rel="permalink">Creating a simple and cheap fan controller
 </a>
       
     </h2>
@@ -571,7 +571,7 @@ After upgrading my computer with the new Ryzen 5800x series, the new motherboard
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/https:/shiko.nl/electronics/designing_business_card/" rel="permalink">Creating a custom PCB business card with EAGLE
+        <a href="/electronics/designing_business_card/" rel="permalink">Creating a custom PCB business card with EAGLE
 </a>
       
     </h2>
@@ -612,7 +612,7 @@ I have looked into making my own business cards multiple times. They would be us
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/https:/shiko.nl/programming/automating_jekyll/" rel="permalink">Automating jekyll build and github hosting
+        <a href="/programming/automating_jekyll/" rel="permalink">Automating jekyll build and github hosting
 </a>
       
     </h2>
