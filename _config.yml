@@ -51,7 +51,7 @@ search_full_content      : #true # true, false (default)
 search_provider          : algolia # lunr (default), algolia
 algolia:
   application_id         : L6XIHWOGZ2 # YOUR_APPLICATION_ID
-  index_name             : blog # YOUR_INDEX_NAME
+  index_name             : "https://shiko.nl" # YOUR_INDEX_NAME
   search_only_api_key    : 43db23cbf486a7a95d34883d3391bdab # YOUR_SEARCH_ONLY_API_KEY
   powered_by             : true # true (default), false
   files_to_exclude:
