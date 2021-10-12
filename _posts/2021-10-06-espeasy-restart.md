@@ -1,5 +1,5 @@
 ---
-title: "Creating a simple and cheap fan controller"
+title: "Automatic restart ESP8266 with ESP easy"
 toc: true
 toc_sticky: true
 header:
