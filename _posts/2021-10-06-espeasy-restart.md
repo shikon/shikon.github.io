@@ -2,8 +2,6 @@
 title: "Automatic restart ESP8266 with ESP easy"
 toc: true
 toc_sticky: true
-header:
-  image: https://raw.githubusercontent.com/shikon/cloudimg/master/typora/background_fan.jpg
 excerpt_separator: "<!--more-->"
 categories:
   - programming
