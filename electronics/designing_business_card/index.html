@@ -23,7 +23,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Shiko">
 <meta property="og:title" content="Creating a custom PCB business card with EAGLE">
-<meta property="og:url" content="https://shiko.nl/electronics/designing_business_card/">
+<meta property="og:url" content="https://shiko.nl/https://shiko.nl/electronics/designing_business_card/">
 
 
   <meta property="og:description" content="An idea  I have looked into making my own business cards multiple times. They would be useful to carry with you just in case. However I never came up with something unique that would be nice and presentable on a piece of nice luxury paper. However, while browsing for ideas, I did find nice examples which replaced the paper for a PCB.  This was really cool, however doing PCB designs weren’t a thing I was able to do a couple years ago.  Now I recently got more experienced with it and I am about to graduate, it was a perfect time to do my own design.  What do I want?  I want this business card to be cool, and somewhat useful. I like products that have had a clear thought process beforehand. So I would say,     Same size as typical business card.   Cool, design features impossible on typical paper business card.   Useful, lets say I give this card to a recruiter. It would be a nice reminder having talked with me. Improving my chances of getting the job I want.   Simple but also unique showing the creativity needed to do engineering designs.   How?  First I started by collecting ideas and I saw some very unique PCB cards. For example, example 1 or example 2. I like simple things so the card in example 1, however very useful is too “busy”. Example 2 does a much nicer job of being “peaceful” and concise.  QR-code generator  I really liked the QR-code in example 1, so I also wanted that in my design. I found out it is quite difficult to find a nice QR-code generator just googling “QR-code generator”. Either you had to pay or it was in JPEG, which means scaling it could become pixelated. Adding “github” to the search terms led me to the project of nayuki, a nice open-source QR-code generator, this person even hosts it on their website so I don’t even need to compile it for my use!  Stock icons  I think adding icons are visually pleasing and is straight to the point. So instead of “just” putting my email on the card, I want to prefix it with an icon. Since I don’t want to reinvent the wheel, I looked for basic icons such as email, phone, LinkedIn and blog. Because I want to use this  kind of professionally I had to make sure I wasn’t stealing these icons.  I opted to use fontawesome icons. The icons can be downloaded as SVG under CCA 4.0. These were then imported into the PCB design software as-is.  PCB design software  I use EAGLE as my design software since I already use fusion 360 for my for my 3D-printer designs. In order to keep everything scalable, I use vector images which can then be converted using the open-source tool by Gordon Williams. The SVG files are put together in inkscape and then converted to EAGLE commands that draws the equivalent inside the EAGLE schematic.  Why? (or engineering notes)  The core theme of the card is the large balance scale visible at the bottom, in my opinion engineering is all about making decisions and balancing (see what I did here?) their pros and cons. In order to design complex systems you can’t optimize every parameter isolated, as it is typically balanced-out/influenced by another parameter. Not to mention that time is not infinite and is a very critical parameter for companies known as time to market. The only solution is to make informed choices which can only be achieved by experience of others or yourself. Me gaining experience in various fields and sharing this is the ultimate goal of this blog.  The scale, is built from drawing the scale in a metal layer, and keeping the background blank. Creating contrast with depth and forming the scale image.  Continuing, in the scale you will find 2 QR-codes, LinkedIn (left) and this blog (right). I opted to use large amount of error correction, since I knew I would put an image inside the QR code and the inaccuracies of silkscreen could influence the readability of the code. This did greatly increase the size of the QR-code, however I was not heavily constrained in useable area. Some people instead use a NFC chip to forward their websites, however I did not find the added complexity of soldering a chip and using the whole back for the antenna worth conveying something that can be easily achieved with a QR-code. Also is cheaper and more likely to be used as there are more smartphones with a camera to read the QR-code than smartphones with a NFC-chip.  It also features a paperclip, this is one of the features I wanted to add. Because, I can imagine that recruiters are people who might want to deal with a paper-CV during an interview. A paper clip would be great to hold it together.  On the back, as main theme the sumo wrestler doing their brand move and is what inspired me to call the website “shiko”, the name of this move. The sun is created by drawing a circle and the rays by rotating a single ray over 360 degrees and is cut to fit within the card.  The feature for the back is a ruler, could come in handy. It was relatively concise and created with this tool.However was not dimensionally accurate so I had to manually resize it to fit.  Finally, when manufacturing this PCB I wanted it to feel professional and luxurious, I found that 0.8 mm thick PCB fit this, with a gold finish (ENIG).  The end of this journey  Did I learn a lot? Yes I did.  I think I used EAGLE in ways it wasn’t designed to be, but it all worked fine and showed me the limitations (no built-in support to import SVG images) but also the possibilities (a PCB design with no electrical components!).  I hope this post now motivated you also to create your own awesome PCB business card!">
@@ -37,7 +37,7 @@
   <meta name="twitter:site" content="@mmistakes">
   <meta name="twitter:title" content="Creating a custom PCB business card with EAGLE">
   <meta name="twitter:description" content="An idea  I have looked into making my own business cards multiple times. They would be useful to carry with you just in case. However I never came up with something unique that would be nice and presentable on a piece of nice luxury paper. However, while browsing for ideas, I did find nice examples which replaced the paper for a PCB.  This was really cool, however doing PCB designs weren’t a thing I was able to do a couple years ago.  Now I recently got more experienced with it and I am about to graduate, it was a perfect time to do my own design.  What do I want?  I want this business card to be cool, and somewhat useful. I like products that have had a clear thought process beforehand. So I would say,     Same size as typical business card.   Cool, design features impossible on typical paper business card.   Useful, lets say I give this card to a recruiter. It would be a nice reminder having talked with me. Improving my chances of getting the job I want.   Simple but also unique showing the creativity needed to do engineering designs.   How?  First I started by collecting ideas and I saw some very unique PCB cards. For example, example 1 or example 2. I like simple things so the card in example 1, however very useful is too “busy”. Example 2 does a much nicer job of being “peaceful” and concise.  QR-code generator  I really liked the QR-code in example 1, so I also wanted that in my design. I found out it is quite difficult to find a nice QR-code generator just googling “QR-code generator”. Either you had to pay or it was in JPEG, which means scaling it could become pixelated. Adding “github” to the search terms led me to the project of nayuki, a nice open-source QR-code generator, this person even hosts it on their website so I don’t even need to compile it for my use!  Stock icons  I think adding icons are visually pleasing and is straight to the point. So instead of “just” putting my email on the card, I want to prefix it with an icon. Since I don’t want to reinvent the wheel, I looked for basic icons such as email, phone, LinkedIn and blog. Because I want to use this  kind of professionally I had to make sure I wasn’t stealing these icons.  I opted to use fontawesome icons. The icons can be downloaded as SVG under CCA 4.0. These were then imported into the PCB design software as-is.  PCB design software  I use EAGLE as my design software since I already use fusion 360 for my for my 3D-printer designs. In order to keep everything scalable, I use vector images which can then be converted using the open-source tool by Gordon Williams. The SVG files are put together in inkscape and then converted to EAGLE commands that draws the equivalent inside the EAGLE schematic.  Why? (or engineering notes)  The core theme of the card is the large balance scale visible at the bottom, in my opinion engineering is all about making decisions and balancing (see what I did here?) their pros and cons. In order to design complex systems you can’t optimize every parameter isolated, as it is typically balanced-out/influenced by another parameter. Not to mention that time is not infinite and is a very critical parameter for companies known as time to market. The only solution is to make informed choices which can only be achieved by experience of others or yourself. Me gaining experience in various fields and sharing this is the ultimate goal of this blog.  The scale, is built from drawing the scale in a metal layer, and keeping the background blank. Creating contrast with depth and forming the scale image.  Continuing, in the scale you will find 2 QR-codes, LinkedIn (left) and this blog (right). I opted to use large amount of error correction, since I knew I would put an image inside the QR code and the inaccuracies of silkscreen could influence the readability of the code. This did greatly increase the size of the QR-code, however I was not heavily constrained in useable area. Some people instead use a NFC chip to forward their websites, however I did not find the added complexity of soldering a chip and using the whole back for the antenna worth conveying something that can be easily achieved with a QR-code. Also is cheaper and more likely to be used as there are more smartphones with a camera to read the QR-code than smartphones with a NFC-chip.  It also features a paperclip, this is one of the features I wanted to add. Because, I can imagine that recruiters are people who might want to deal with a paper-CV during an interview. A paper clip would be great to hold it together.  On the back, as main theme the sumo wrestler doing their brand move and is what inspired me to call the website “shiko”, the name of this move. The sun is created by drawing a circle and the rays by rotating a single ray over 360 degrees and is cut to fit within the card.  The feature for the back is a ruler, could come in handy. It was relatively concise and created with this tool.However was not dimensionally accurate so I had to manually resize it to fit.  Finally, when manufacturing this PCB I wanted it to feel professional and luxurious, I found that 0.8 mm thick PCB fit this, with a gold finish (ENIG).  The end of this journey  Did I learn a lot? Yes I did.  I think I used EAGLE in ways it wasn’t designed to be, but it all worked fine and showed me the limitations (no built-in support to import SVG images) but also the possibilities (a PCB design with no electrical components!).  I hope this post now motivated you also to create your own awesome PCB business card!">
-  <meta name="twitter:url" content="https://shiko.nl/electronics/designing_business_card/">
+  <meta name="twitter:url" content="https://shiko.nl/https://shiko.nl/electronics/designing_business_card/">
 
   
     <meta name="twitter:card" content="summary_large_image">
@@ -59,7 +59,7 @@
   
 
 
-<link rel="canonical" href="https://shiko.nl/electronics/designing_business_card/">
+<link rel="canonical" href="https://shiko.nl/https://shiko.nl/electronics/designing_business_card/">
 
 
 
@@ -70,7 +70,7 @@
     
       "@type": "Person",
       "name": "Lan Hu",
-      "url": "https://shiko.nl/",
+      "url": "https://shiko.nl/https://shiko.nl/",
       "sameAs": ["https://twitter.com/mmistakes","https://www.facebook.com/michaelrose"]
     
   }
@@ -86,7 +86,7 @@
 <!-- end _includes/seo.html -->
 
 
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Shiko Feed">
+<link href="/https://shiko.nl/feed.xml" type="application/atom+xml" rel="alternate" title="Shiko Feed">
 
 <!-- https://t.co/dKP3o1e -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -96,7 +96,7 @@
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/https://shiko.nl/assets/css/main.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 
 <!--[if IE]>
@@ -145,18 +145,18 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         
-        <a class="site-title" href="/">
+        <a class="site-title" href="/https://shiko.nl/">
           Shiko
           <span class="site-subtitle">Life is an unique journey</span>
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/about/">About</a>
+              <a href="/https://shiko.nl/about/">About</a>
             </li><li class="masthead__menu-item">
-              <a href="/categories/">Categories</a>
+              <a href="/https://shiko.nl/categories/">Categories</a>
             </li><li class="masthead__menu-item">
-              <a href="/year-archive/">Posts</a>
+              <a href="/https://shiko.nl/year-archive/">Posts</a>
             </li><li class="masthead__menu-item">
-              <a href="/tags/">Tags</a>
+              <a href="/https://shiko.nl/tags/">Tags</a>
             </li></ul>
         
         <button class="search__toggle" type="button">
@@ -211,7 +211,7 @@
   
     <div class="author__avatar">
       
-        <img src="/assets/images/me.jpg" alt="Lan Hu" itemprop="image">
+        <img src="/https://shiko.nl/assets/images/me.jpg" alt="Lan Hu" itemprop="image">
       
     </div>
   
@@ -450,15 +450,15 @@
     
       
       
-      <a href="/tags/#cad" class="page__taxonomy-item" rel="tag">CAD</a><span class="sep">, </span>
+      <a href="/https://shiko.nl/tags/#cad" class="page__taxonomy-item" rel="tag">CAD</a><span class="sep">, </span>
     
       
       
-      <a href="/tags/#design" class="page__taxonomy-item" rel="tag">design</a><span class="sep">, </span>
+      <a href="/https://shiko.nl/tags/#design" class="page__taxonomy-item" rel="tag">design</a><span class="sep">, </span>
     
       
       
-      <a href="/tags/#pcb" class="page__taxonomy-item" rel="tag">PCB</a>
+      <a href="/https://shiko.nl/tags/#pcb" class="page__taxonomy-item" rel="tag">PCB</a>
     
     </span>
   </p>
@@ -479,7 +479,7 @@
     
       
       
-      <a href="/categories/#electronics" class="page__taxonomy-item" rel="tag">electronics</a>
+      <a href="/https://shiko.nl/categories/#electronics" class="page__taxonomy-item" rel="tag">electronics</a>
     
     </span>
   </p>
@@ -494,22 +494,22 @@
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?via=mmistakes&text=Creating+a+custom+PCB+business+card+with+EAGLE%20https%3A%2F%2Fshiko.nl%2Felectronics%2Fdesigning_business_card%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=mmistakes&text=Creating+a+custom+PCB+business+card+with+EAGLE%20https%3A%2F%2Fshiko.nl%2Fhttps%3A%2F%2Fshiko.nl%2Felectronics%2Fdesigning_business_card%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshiko.nl%2Felectronics%2Fdesigning_business_card%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshiko.nl%2Fhttps%3A%2F%2Fshiko.nl%2Felectronics%2Fdesigning_business_card%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fshiko.nl%2Felectronics%2Fdesigning_business_card%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fshiko.nl%2Fhttps%3A%2F%2Fshiko.nl%2Felectronics%2Fdesigning_business_card%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/programming/automating_jekyll/" class="pagination--pager" title="Automating jekyll build and github hosting
+      <a href="/https://shiko.nl/programming/automating_jekyll/" class="pagination--pager" title="Automating jekyll build and github hosting
 ">Previous</a>
     
     
-      <a href="/electronics/pwm-fan-controller/" class="pagination--pager" title="Creating a simple and cheap fan controller
+      <a href="/https://shiko.nl/electronics/pwm-fan-controller/" class="pagination--pager" title="Creating a simple and cheap fan controller
 ">Next</a>
     
   </nav>
@@ -534,7 +534,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/programming/espeasy-restart/" rel="permalink">Creating a simple and cheap fan controller
+        <a href="/https://shiko.nl/programming/espeasy-restart/" rel="permalink">Creating a simple and cheap fan controller
 </a>
       
     </h2>
@@ -575,7 +575,7 @@ Recently, I had the issue where my ZigBee network would die every few days. Afte
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/electronics/boost-design/" rel="permalink">Designing a Nixie HV supply part 2
+        <a href="/https://shiko.nl/electronics/boost-design/" rel="permalink">Designing a Nixie HV supply part 2
 </a>
       
     </h2>
@@ -616,7 +616,7 @@ Let’s firstly state the design you will read works without issue. The high vol
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/electronics/pwm-fan-controller/" rel="permalink">Creating a simple and cheap fan controller
+        <a href="/https://shiko.nl/electronics/pwm-fan-controller/" rel="permalink">Creating a simple and cheap fan controller
 </a>
       
     </h2>
@@ -657,7 +657,7 @@ After upgrading my computer with the new Ryzen 5800x series, the new motherboard
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/programming/automating_jekyll/" rel="permalink">Automating jekyll build and github hosting
+        <a href="/https://shiko.nl/programming/automating_jekyll/" rel="permalink">Automating jekyll build and github hosting
 </a>
       
     </h2>
@@ -730,7 +730,7 @@ As people might have noticed this website runs on jekyll, which is code that cre
       
     
 
-    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    <li><a href="/https://shiko.nl/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
   </ul>
 </div>
 
@@ -740,7 +740,7 @@ As people might have noticed this website runs on jekyll, which is code that cre
     </div>
 
     
-  <script src="/assets/js/main.min.js"></script>
+  <script src="/https://shiko.nl/assets/js/main.min.js"></script>
 
 
 <!-- Including InstantSearch.js library and styling -->
@@ -770,7 +770,7 @@ const hitTemplate = function(hit) {
   return `
     <div class="list__item">
       <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-        <h2 class="archive__item-title" itemprop="headline"><a href="/${url}">${title}</a></h2>
+        <h2 class="archive__item-title" itemprop="headline"><a href="https://shiko.nl/${url}">${title}</a></h2>
         <div class="archive__item-excerpt" itemprop="description">${content}</div>
       </article>
     </div>

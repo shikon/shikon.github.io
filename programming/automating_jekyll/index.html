@@ -23,26 +23,26 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Shiko">
 <meta property="og:title" content="Automating jekyll build and github hosting">
-<meta property="og:url" content="https://shiko.nl/programming/automating_jekyll/">
+<meta property="og:url" content="https://shiko.nl/https://shiko.nl/programming/automating_jekyll/">
 
 
   <meta property="og:description" content="Backstory  As people might have noticed this website runs on jekyll, which is code that creates static websites. Great for my simple blogging use. The easiest way for me to get this nice skin working on github pages was to use their remote theme function. However, letting github compile the website leads to some limitation such as plugin use. In order to futureproof myself (files come and go…) I would rather compile it locally and make only use of github’s free hosting.  Googling a solution  Google is my friend, apparently people compile Jekyll locally, mainly for unsupported plugin.  Therefore I searched using the following keywords “Jekyll static github pages with unsupported plugins” and came along Dani’s nice write-up. Unfortunately, his method on how to update the website didn’t work for me, and is probably due to the lack of my understanding of how git works. I did follow the preceding steps in his guide.  However this lead me to a much better solution which automates a great deal and makes it as easy as a single push of a button ;).  Browsing the internet a bit more I came across Surdu’s script, which made life easier.  Working out the details  The goal is to enable static webpage hosting on github. And also try to make this as effortless possible.  That is so I can focus my time on my projects and not the nitty gritty.  At the end you will have achieved the following.     Keep files in 1 repository, this makes sense as they belong together   Store website files in the branch “head”, as github will interpret this to the website files under yourname.github.io   Store source files in the branch “source”   Pushing your new posts will recompile the website and update your webpage accordingly   I will assume you understand:     Basics of git, at least how to set it. Such you can send git commands in the terminal   Have jekyll already installed and working. If not see for example this.   Basic use of unix   Use the bundle command to compile your jekyll website   Separating by branching  In order for github to correctly interpret your files.  We should push the compiled files (defaults to _site -inside-) to our head branch. All other files are pushed to our source branch. To achieve this do the following. In your repository folder which is also the main jekyll folder now root,     Put _site/ in the .gitignore file   git checkout source, push and git checkout master. Compile the website bundle exec jekyll build.   cd _site and touch .nojekyll this prevents github to compile   Go back to root, backup all files and remove everything inside except the .gitignore file.   Copy everything inside _site -which you backed up- to root and push. Delete _site.   git checkout sources and copy everything back (not _site, should be removed) and push. Now github will display your locally compiled website. While your source files are inside the source branch.   ‘*’ a push entails, easily,  git add . git commit -m &#39;commit message&#39; git push   Script for updating  The complex workflow noted by Dani didn’t work out and I am lazy. So we are going to automate the flow of updating the website and updating our branches accordingly. This script is based on Surdu’s script, but first.          Create a file “pre-push” nano root/.git/hooks/pre-push           With the following content      #!/bin/sh # This script assumes the master branch is the website therefore all compiled files should be in master branch # the source branch holds all your files, please put &lt;_site/&gt; in your git.ignore file     # If any command fails in the below script, exit with error set -e     # Set the name of the folder that will be created in the parent # folder of your repo folder, and which will temporarily # hold the generated content. temp_folder=&quot;_source-temp&quot;     # Make sure our main code runs only if we push the master branch if [ &quot;$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)&quot; == &quot;source&quot; ]; then 	# Store the last commit message from source branch 	last_message=$(git show -s --format=%s source)     	# Build our Jekyll site 	bundle exec jekyll build     	# Move the generated site in our temp folder 	mv _site ../${temp_folder}     	# Checkout the gh-pages branch and clean it&#39;s contents 	git checkout master 	rm -rf *     	# Copy the site content from the temp folder and remove the temp folder 	cp -r ../${temp_folder}/* . 	rm -rf ../${temp_folder}     	# Commit and push our generated site to GitHub 	git add -A 	git commit -m &quot;Built \`$last_message\`&quot; 	git push     	# Go back to the source branch 	git checkout source else 	echo &quot;Not source branch. Skipping build&quot; fi                    chmod +x root/.git/hooks/pre-push           Add your new files and recompile by doing a push in root.      End  If anything is unclear or not working don’t hesitate to leave a comment (if it works).">
 
 
 
-  <meta property="og:image" content="https://shiko.nl/assets/images/site-logo.png">
+  <meta property="og:image" content="https://shiko.nl/https://shiko.nl/assets/images/site-logo.png">
 
 
 
   <meta name="twitter:site" content="@mmistakes">
   <meta name="twitter:title" content="Automating jekyll build and github hosting">
   <meta name="twitter:description" content="Backstory  As people might have noticed this website runs on jekyll, which is code that creates static websites. Great for my simple blogging use. The easiest way for me to get this nice skin working on github pages was to use their remote theme function. However, letting github compile the website leads to some limitation such as plugin use. In order to futureproof myself (files come and go…) I would rather compile it locally and make only use of github’s free hosting.  Googling a solution  Google is my friend, apparently people compile Jekyll locally, mainly for unsupported plugin.  Therefore I searched using the following keywords “Jekyll static github pages with unsupported plugins” and came along Dani’s nice write-up. Unfortunately, his method on how to update the website didn’t work for me, and is probably due to the lack of my understanding of how git works. I did follow the preceding steps in his guide.  However this lead me to a much better solution which automates a great deal and makes it as easy as a single push of a button ;).  Browsing the internet a bit more I came across Surdu’s script, which made life easier.  Working out the details  The goal is to enable static webpage hosting on github. And also try to make this as effortless possible.  That is so I can focus my time on my projects and not the nitty gritty.  At the end you will have achieved the following.     Keep files in 1 repository, this makes sense as they belong together   Store website files in the branch “head”, as github will interpret this to the website files under yourname.github.io   Store source files in the branch “source”   Pushing your new posts will recompile the website and update your webpage accordingly   I will assume you understand:     Basics of git, at least how to set it. Such you can send git commands in the terminal   Have jekyll already installed and working. If not see for example this.   Basic use of unix   Use the bundle command to compile your jekyll website   Separating by branching  In order for github to correctly interpret your files.  We should push the compiled files (defaults to _site -inside-) to our head branch. All other files are pushed to our source branch. To achieve this do the following. In your repository folder which is also the main jekyll folder now root,     Put _site/ in the .gitignore file   git checkout source, push and git checkout master. Compile the website bundle exec jekyll build.   cd _site and touch .nojekyll this prevents github to compile   Go back to root, backup all files and remove everything inside except the .gitignore file.   Copy everything inside _site -which you backed up- to root and push. Delete _site.   git checkout sources and copy everything back (not _site, should be removed) and push. Now github will display your locally compiled website. While your source files are inside the source branch.   ‘*’ a push entails, easily,  git add . git commit -m &#39;commit message&#39; git push   Script for updating  The complex workflow noted by Dani didn’t work out and I am lazy. So we are going to automate the flow of updating the website and updating our branches accordingly. This script is based on Surdu’s script, but first.          Create a file “pre-push” nano root/.git/hooks/pre-push           With the following content      #!/bin/sh # This script assumes the master branch is the website therefore all compiled files should be in master branch # the source branch holds all your files, please put &lt;_site/&gt; in your git.ignore file     # If any command fails in the below script, exit with error set -e     # Set the name of the folder that will be created in the parent # folder of your repo folder, and which will temporarily # hold the generated content. temp_folder=&quot;_source-temp&quot;     # Make sure our main code runs only if we push the master branch if [ &quot;$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)&quot; == &quot;source&quot; ]; then 	# Store the last commit message from source branch 	last_message=$(git show -s --format=%s source)     	# Build our Jekyll site 	bundle exec jekyll build     	# Move the generated site in our temp folder 	mv _site ../${temp_folder}     	# Checkout the gh-pages branch and clean it&#39;s contents 	git checkout master 	rm -rf *     	# Copy the site content from the temp folder and remove the temp folder 	cp -r ../${temp_folder}/* . 	rm -rf ../${temp_folder}     	# Commit and push our generated site to GitHub 	git add -A 	git commit -m &quot;Built \`$last_message\`&quot; 	git push     	# Go back to the source branch 	git checkout source else 	echo &quot;Not source branch. Skipping build&quot; fi                    chmod +x root/.git/hooks/pre-push           Add your new files and recompile by doing a push in root.      End  If anything is unclear or not working don’t hesitate to leave a comment (if it works).">
-  <meta name="twitter:url" content="https://shiko.nl/programming/automating_jekyll/">
+  <meta name="twitter:url" content="https://shiko.nl/https://shiko.nl/programming/automating_jekyll/">
 
   
     <meta name="twitter:card" content="summary">
     
-      <meta name="twitter:image" content="https://shiko.nl/assets/images/site-logo.png">
+      <meta name="twitter:image" content="https://shiko.nl/https://shiko.nl/assets/images/site-logo.png">
     
   
 
@@ -61,7 +61,7 @@
   
 
 
-<link rel="canonical" href="https://shiko.nl/programming/automating_jekyll/">
+<link rel="canonical" href="https://shiko.nl/https://shiko.nl/programming/automating_jekyll/">
 
 
 
@@ -72,7 +72,7 @@
     
       "@type": "Person",
       "name": "Lan Hu",
-      "url": "https://shiko.nl/",
+      "url": "https://shiko.nl/https://shiko.nl/",
       "sameAs": ["https://twitter.com/mmistakes","https://www.facebook.com/michaelrose"]
     
   }
@@ -88,7 +88,7 @@
 <!-- end _includes/seo.html -->
 
 
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Shiko Feed">
+<link href="/https://shiko.nl/feed.xml" type="application/atom+xml" rel="alternate" title="Shiko Feed">
 
 <!-- https://t.co/dKP3o1e -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -98,7 +98,7 @@
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/https://shiko.nl/assets/css/main.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 
 <!--[if IE]>
@@ -147,18 +147,18 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         
-        <a class="site-title" href="/">
+        <a class="site-title" href="/https://shiko.nl/">
           Shiko
           <span class="site-subtitle">Life is an unique journey</span>
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/about/">About</a>
+              <a href="/https://shiko.nl/about/">About</a>
             </li><li class="masthead__menu-item">
-              <a href="/categories/">Categories</a>
+              <a href="/https://shiko.nl/categories/">Categories</a>
             </li><li class="masthead__menu-item">
-              <a href="/year-archive/">Posts</a>
+              <a href="/https://shiko.nl/year-archive/">Posts</a>
             </li><li class="masthead__menu-item">
-              <a href="/tags/">Tags</a>
+              <a href="/https://shiko.nl/tags/">Tags</a>
             </li></ul>
         
         <button class="search__toggle" type="button">
@@ -195,7 +195,7 @@
   
     <div class="author__avatar">
       
-        <img src="/assets/images/me.jpg" alt="Lan Hu" itemprop="image">
+        <img src="/https://shiko.nl/assets/images/me.jpg" alt="Lan Hu" itemprop="image">
       
     </div>
   
@@ -492,15 +492,15 @@ fi
     
       
       
-      <a href="/tags/#automating" class="page__taxonomy-item" rel="tag">automating</a><span class="sep">, </span>
+      <a href="/https://shiko.nl/tags/#automating" class="page__taxonomy-item" rel="tag">automating</a><span class="sep">, </span>
     
       
       
-      <a href="/tags/#design" class="page__taxonomy-item" rel="tag">design</a><span class="sep">, </span>
+      <a href="/https://shiko.nl/tags/#design" class="page__taxonomy-item" rel="tag">design</a><span class="sep">, </span>
     
       
       
-      <a href="/tags/#server" class="page__taxonomy-item" rel="tag">server</a>
+      <a href="/https://shiko.nl/tags/#server" class="page__taxonomy-item" rel="tag">server</a>
     
     </span>
   </p>
@@ -521,7 +521,7 @@ fi
     
       
       
-      <a href="/categories/#programming" class="page__taxonomy-item" rel="tag">programming</a>
+      <a href="/https://shiko.nl/categories/#programming" class="page__taxonomy-item" rel="tag">programming</a>
     
     </span>
   </p>
@@ -536,22 +536,22 @@ fi
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?via=mmistakes&text=Automating+jekyll+build+and+github+hosting%20https%3A%2F%2Fshiko.nl%2Fprogramming%2Fautomating_jekyll%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=mmistakes&text=Automating+jekyll+build+and+github+hosting%20https%3A%2F%2Fshiko.nl%2Fhttps%3A%2F%2Fshiko.nl%2Fprogramming%2Fautomating_jekyll%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshiko.nl%2Fprogramming%2Fautomating_jekyll%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshiko.nl%2Fhttps%3A%2F%2Fshiko.nl%2Fprogramming%2Fautomating_jekyll%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fshiko.nl%2Fprogramming%2Fautomating_jekyll%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fshiko.nl%2Fhttps%3A%2F%2Fshiko.nl%2Fprogramming%2Fautomating_jekyll%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/electronics/a-pcb-design/" class="pagination--pager" title="Designing a Nixie HV supply part 1
+      <a href="/https://shiko.nl/electronics/a-pcb-design/" class="pagination--pager" title="Designing a Nixie HV supply part 1
 ">Previous</a>
     
     
-      <a href="/electronics/designing_business_card/" class="pagination--pager" title="Creating a custom PCB business card with EAGLE
+      <a href="/https://shiko.nl/electronics/designing_business_card/" class="pagination--pager" title="Creating a custom PCB business card with EAGLE
 ">Next</a>
     
   </nav>
@@ -576,7 +576,7 @@ fi
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/programming/espeasy-restart/" rel="permalink">Creating a simple and cheap fan controller
+        <a href="/https://shiko.nl/programming/espeasy-restart/" rel="permalink">Creating a simple and cheap fan controller
 </a>
       
     </h2>
@@ -617,7 +617,7 @@ Recently, I had the issue where my ZigBee network would die every few days. Afte
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/electronics/boost-design/" rel="permalink">Designing a Nixie HV supply part 2
+        <a href="/https://shiko.nl/electronics/boost-design/" rel="permalink">Designing a Nixie HV supply part 2
 </a>
       
     </h2>
@@ -658,7 +658,7 @@ Let’s firstly state the design you will read works without issue. The high vol
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/electronics/pwm-fan-controller/" rel="permalink">Creating a simple and cheap fan controller
+        <a href="/https://shiko.nl/electronics/pwm-fan-controller/" rel="permalink">Creating a simple and cheap fan controller
 </a>
       
     </h2>
@@ -699,7 +699,7 @@ After upgrading my computer with the new Ryzen 5800x series, the new motherboard
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/electronics/designing_business_card/" rel="permalink">Creating a custom PCB business card with EAGLE
+        <a href="/https://shiko.nl/electronics/designing_business_card/" rel="permalink">Creating a custom PCB business card with EAGLE
 </a>
       
     </h2>
@@ -772,7 +772,7 @@ I have looked into making my own business cards multiple times. They would be us
       
     
 
-    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    <li><a href="/https://shiko.nl/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
   </ul>
 </div>
 
@@ -782,7 +782,7 @@ I have looked into making my own business cards multiple times. They would be us
     </div>
 
     
-  <script src="/assets/js/main.min.js"></script>
+  <script src="/https://shiko.nl/assets/js/main.min.js"></script>
 
 
 <!-- Including InstantSearch.js library and styling -->
@@ -812,7 +812,7 @@ const hitTemplate = function(hit) {
   return `
     <div class="list__item">
       <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-        <h2 class="archive__item-title" itemprop="headline"><a href="/${url}">${title}</a></h2>
+        <h2 class="archive__item-title" itemprop="headline"><a href="https://shiko.nl/${url}">${title}</a></h2>
         <div class="archive__item-excerpt" itemprop="description">${content}</div>
       </article>
     </div>
