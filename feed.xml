@@ -1,4 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://shiko.nl/feed.xml" rel="self" type="application/atom+xml" /><link href="https://shiko.nl/" rel="alternate" type="text/html" /><updated>2021-10-12T22:47:39+02:00</updated><id>https://shiko.nl/feed.xml</id><title type="html">Shiko</title><subtitle>Just one of my many random project</subtitle><author><name>Lan Hu</name></author><entry><title type="html">Automatic restart ESP8266 with ESP easy</title><link href="https://shiko.nl/programming/espeasy-restart/" rel="alternate" type="text/html" title="Automatic restart ESP8266 with ESP easy" /><published>2021-10-06T00:00:00+02:00</published><updated>2021-10-06T00:00:00+02:00</updated><id>https://shiko.nl/programming/espeasy-restart</id><content type="html" xml:base="https://shiko.nl/programming/espeasy-restart/">&lt;h1 id=&quot;a-smart-home-with-issues&quot;&gt;A smart home with issues&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://shiko.nl/feed.xml" rel="self" type="application/atom+xml" /><link href="https://shiko.nl/" rel="alternate" type="text/html" /><updated>2021-10-14T16:22:27+02:00</updated><id>https://shiko.nl/feed.xml</id><title type="html">Shiko</title><subtitle>Just one of my many random project</subtitle><author><name>Lan Hu</name></author><entry><title type="html">Creating a simple and cheap fan controller</title><link href="https://shiko.nl/programming/shibee-pcb/" rel="alternate" type="text/html" title="Creating a simple and cheap fan controller" /><published>2021-10-14T00:00:00+02:00</published><updated>2021-10-14T00:00:00+02:00</updated><id>https://shiko.nl/programming/shibee-pcb</id><content type="html" xml:base="https://shiko.nl/programming/shibee-pcb/">&lt;h1 id=&quot;a-smart-home-with-issues&quot;&gt;A smart home with issues&lt;/h1&gt;
+
+&lt;p&gt;Recently, I had the issue where my ZigBee network would die every few days. After a lot of debugging and even re-pairing of all my devices, I came to the conclusion my ZigBee coordinator is nearing the end of its life. Strangely enough, if you restart the device it will work… for a few days. Hence, a quick and dirty fix is to restart the device every day. This is not a solution to the problem, but in case of buggy software or just hardware that is not working well can be a temporary solution.&lt;/p&gt;
+
+&lt;h1 id=&quot;cc2531-zigbee-with-esp8266-as-wireless-coordinator&quot;&gt;CC2531 ZigBee with ESP8266 as wireless coordinator&lt;/h1&gt;
+
+&lt;p&gt;In my case the CC2531 which is my ZigBee network coordinator is connected to an ESP8266 as a serial to wireless bridge. Because of that, I run a piece of software called ESP easy to set this up. In here we can set a rule that will restart the device every x minutes of on time as follows.&lt;/p&gt;
+
+&lt;h2 id=&quot;enable-rules-in-esp-easy&quot;&gt;Enable rules in ESP easy&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;To enable rules, go to Tools/Advanced and check the Rules checkbox.&lt;/li&gt;
+  &lt;li&gt;Save&lt;/li&gt;
+  &lt;li&gt;Refresh the page&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;go-to-rules-and-insert-the-following-code&quot;&gt;Go to rules and insert the following code&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Between Devices and Notifications there will be a rules button&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Click on the rules button to go to that page&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Insert the following code&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;On Uptime#MUC1_Uptime do
+if [Uptime#MUC1_Uptime]&amp;gt;1440
+ Reboot
+endif
+endon
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Save&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;???&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Profit&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;You can change 1440 to the number of minutes you want. After this amount of time the device will restart.&lt;/p&gt;
+
+&lt;h1 id=&quot;this-is-not-the-final-solution&quot;&gt;This is not the final solution&lt;/h1&gt;
+
+&lt;p&gt;At the moment I am designing my own ZigBee USB stick to work with Zigbee2MQTT (Z2M) or Zigbee Home Assistant (ZHA) which both can be integrated in Home Assistant. However due to chip-supply issues the newer sticks based on TI’s CC2652P are mostly out-of-stock as of this writing. Therefore, I will try to create a simple design and sell my prototypes in the Dutch market.&lt;/p&gt;</content><author><name>Lan Hu</name></author><category term="programming" /><category term="Smart Home" /><category term="ZigBee" /><summary type="html">A smart home with issues Recently, I had the issue where my ZigBee network would die every few days. After a lot of debugging and even re-pairing of all my devices, I came to the conclusion my ZigBee coordinator is nearing the end of its life. Strangely enough, if you restart the device it will work… for a few days. Hence, a quick and dirty fix is to restart the device every day. This is not a solution to the problem, but in case of buggy software or just hardware that is not working well can be a temporary solution. CC2531 ZigBee with ESP8266 as wireless coordinator In my case the CC2531 which is my ZigBee network coordinator is connected to an ESP8266 as a serial to wireless bridge. Because of that, I run a piece of software called ESP easy to set this up. In here we can set a rule that will restart the device every x minutes of on time as follows. Enable rules in ESP easy To enable rules, go to Tools/Advanced and check the Rules checkbox. Save Refresh the page Go to rules and insert the following code Between Devices and Notifications there will be a rules button Click on the rules button to go to that page Insert the following code On Uptime#MUC1_Uptime do if [Uptime#MUC1_Uptime]&amp;gt;1440 Reboot endif endon Save ??? Profit You can change 1440 to the number of minutes you want. After this amount of time the device will restart. This is not the final solution At the moment I am designing my own ZigBee USB stick to work with Zigbee2MQTT (Z2M) or Zigbee Home Assistant (ZHA) which both can be integrated in Home Assistant. However due to chip-supply issues the newer sticks based on TI’s CC2652P are mostly out-of-stock as of this writing. Therefore, I will try to create a simple design and sell my prototypes in the Dutch market.</summary></entry><entry><title type="html">Automatic restart ESP8266 with ESP easy</title><link href="https://shiko.nl/programming/espeasy-restart/" rel="alternate" type="text/html" title="Automatic restart ESP8266 with ESP easy" /><published>2021-10-06T00:00:00+02:00</published><updated>2021-10-06T00:00:00+02:00</updated><id>https://shiko.nl/programming/espeasy-restart</id><content type="html" xml:base="https://shiko.nl/programming/espeasy-restart/">&lt;h1 id=&quot;a-smart-home-with-issues&quot;&gt;A smart home with issues&lt;/h1&gt;
 
 &lt;p&gt;Recently, I had the issue where my ZigBee network would die every few days. After a lot of debugging and even re-pairing of all my devices, I came to the conclusion my ZigBee coordinator is nearing the end of its life. Strangely enough, if you restart the device it will work… for a few days. Hence, a quick and dirty fix is to restart the device every day. This is not a solution to the problem, but in case of buggy software or just hardware that is not working well can be a temporary solution.&lt;/p&gt;
 
