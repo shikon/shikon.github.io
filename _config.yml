@@ -21,7 +21,7 @@ url                      : https://shiko.nl # the base hostname & protocol for y
 baseurl                  : "/" # the subpath of your site, e.g. "/blog"
 repository               : "shikon/shikon.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : /assets/images/logo.png # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 150 #average 200-250 if technical down to 50-75 wpm i.o.w. 1/4
