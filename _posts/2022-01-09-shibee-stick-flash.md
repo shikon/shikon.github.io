@@ -10,7 +10,7 @@ tags:
   - ZigBee
 ---
 
-# ShiBee stick
+# To make or not to make a shtick
 
 ## A recent design of a ZigBee stick
 
@@ -37,8 +37,6 @@ So the ShiBee stick comes ready with the firmware already flashed on there. Depe
 7. `python cc2538-bsl.py -p PORT -evw FIRMWARE` In my case `PORT` is `COM5` and my file is renamed to `flash_me_router.zip`. Hence it can look something like this: ![image-20220109182437609](https://raw.githubusercontent.com/shikon/cloudimg/master/typora/image-20220109182437609.png)
 
 8. You have flashed your device, congratz!
-
-9. 
 
    
 
