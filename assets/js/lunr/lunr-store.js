@@ -52,4 +52,10 @@ var store = [{
         "tags": ["Smart Home","ZigBee"],
         "url": "/programming/espeasy-restart/",
         "teaser": null
+      },{
+        "title": "ShiBee stick flashing and teardown",
+        "excerpt":"ShiBee stick A recent design of a ZigBee stick As mentioned before, I had issues with my old ZigBee stick. Also due to low inventory, because of shortages of the new ZigBee TI CC2652 USB sticks, I took upon myself to design my own. It was a nice pet project...","categories": ["programming"],
+        "tags": ["Smart Home","ZigBee"],
+        "url": "/programming/shibee-stick-flash/",
+        "teaser": null
       },]
