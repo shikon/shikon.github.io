@@ -1,12 +1,12 @@
 ---
 permalink: /about/
 title: "About"
-excerpt: "Minimal Mistakes is a flexible two-column Jekyll theme."
+excerpt: "Lan tries to see connections with a broad view and answer the why this tech question."
 last_modified_at: 2021-01-07T20:51:23+2:00
 toc: true
 ---
 
-Fascinated by physics as well as modern devices, I started a BSc. degree in Applied Physics and afterwards also Electrical Engineering at the Eindhoven University of Technology. Currently, I am trying to close the gap between circuit design and novel semiconductors during my joint MSc. degree in the aforementioned fields.
+Fascinated by physics as well as modern devices I currently engineer for a company which is making many lives easier and more fulfilling. In my free time I like to be active but it is hard to balance with my passion for technology. Understanding my DIY projects from all abstraction levels, from device to system is my joy.
 
 ## Goal
 
@@ -14,6 +14,6 @@ Is to (b)log my random projects, so I can share but also  improve retention of t
 
 ## Random facts 
 
-- Intern at the moment
-- Likes 3D printing, Arduino,  IoT, smarthome, traveling, hardware and embedded systems
+- ~~Intern at the moment~~ Design Engineer at a high-tech company
+- Likes 3D printing, Arduino,  IoT, smart home, traveling, hardware and embedded systems
 - Values self-development

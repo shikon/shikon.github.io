@@ -65,9 +65,9 @@ naver_site_verification  :
 
 # Social Sharing
 twitter:
-  username               : &twitter "mmistakes"
+  username               : #&twitter "mmistakes"
 facebook:
-  username               : &facebook "michaelrose"
+  username               : #&facebook "michaelrose"
   app_id                 :
   publisher              :
 og_image                 : "/assets/images/site-logo.png" # Open Graph/Twitter default site image
@@ -112,15 +112,12 @@ author:
 # Site Footer
 footer:
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: ""
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: ""
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: ""
+      url: "https://github.com/shikon"
+    - label: "Linkedin"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/lanhu"
 
 
 # Reading Files

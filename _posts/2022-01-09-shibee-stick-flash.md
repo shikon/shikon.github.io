@@ -34,7 +34,7 @@ So the ShiBee stick comes ready with the firmware already flashed on there. Depe
 
 6. Open device manager if on windows or use `lsusb` and find what name = `PORT`  your computer gave your CH340 usb device. <img src="https://raw.githubusercontent.com/shikon/cloudimg/master/typora/image-20220109181945934.png" alt="image-20220109181945934" style="zoom:50%;" />
 
-7. `python cc2538-bsl.py -p PORT -evw FIRMWARE` In my case `PORT` is `COM5` and my file is renamed to `flash_me_router.zip`. Hence it can look something like this: ![image-20220109182437609](https://raw.githubusercontent.com/shikon/cloudimg/master/typora/image-20220109182437609.png)
+7. `python cc2538-bsl.py -p PORT -evw FIRMWARE` In my case `PORT` is `COM5` and my file is renamed to `flash_me_router.zip`. Hence it can look something like this: ![image-20220109190614818](https://raw.githubusercontent.com/shikon/cloudimg/master/typora/image-20220109190614818.png)
 
 8. You have flashed your device, congratz!
 
