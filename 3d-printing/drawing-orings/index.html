@@ -34,20 +34,6 @@
 
 
 
-  <meta name="twitter:site" content="@mmistakes">
-  <meta name="twitter:title" content="Drawing O-rings for dad aka printing O-rings for dad part 2">
-  <meta name="twitter:description" content="Practicalities…  While waiting for my Sainsmart 3D TPU filament to arrive, I still needed some other parts before I could start the printing. That is a CAD drawing of such O-ring. I thought I would finish this in a couple of minutes, I mean how hard could it be? I simply draw a ring and that’s it. Always, in practice or in reality if you want, it does not come easy. At least if you are unexperienced, things you know how to, well… you know how to. Therefore they are easy :).  O-ring or square-ring?  First I started with two circles, and then you would extrude it up a little to get a 3D part. Circles are 2D as they “live” in a plane. If you could pull it up well then you would end up with a sort of squished cylinder and it becomes 3D! Something like below. But then I realized in my situation I would prefer not to have 2 “flat” sides. Which ends up to be more of a square ring.   To mimic a real O-ring both sides would’ve have been well round and like a circle, but this is unpractical for a 3D-printer. Since it prints on a flat surface, one side eventually ends up flat. Therefore, it would be stupid to draw it round. Well you could try, but that would mean the following printed layers have to “fly”. This is called overhang and while it allows for some I might as well just draw it flat as in my use case it would be perfectly fine.  The previous method was not what I wanted exactly, as I end up with 2 flat surfaces, well my next method was to draw a circle and cut it in half, let this rotate over an axis that such far away it is equal to the inner radius I want ~4.5cm. So I start of drawing a circle in the origin…. This was a bad plan. Somehow I could not move it, well because fusion fixes/constraints it to the origin. After some googling I found this out, and it was suggested to remove this constraint, however trying to do this didn’t help. I gave up and just drew another circle but not taking the origin at the center of the circle. I ended up with something that looked quite decent.    Oh I also added some fillets, what are those? Well those nice roundings, at the left and right corner. Ah remember what I said about not being able to print flying things? Yeah maybe the overhang angle is a bit too aggressive. Also maybe I want it to be a bit thicker, lets add a square to the bottom. Here we go.    Now we move it away from the origin ~4.5 cm and revolve and we end up with something that is looking promising.    What now?  Well I exported the file as a STL, next I will set the Cura profile and slice it and test both “O-ring” designs. The one with fillets and one with a square. Also I designed the width of the O-ring to be 5 mm, from the CAD program it seems to be a bit too wide. I just randomly chose this as it seemed to be quite okay. But I might redesign it for 4 mm, or smaller. As I am a real fusion360 noob, I do not know how to make it parametric. That means I tell the program, that the things I draw can be varied, and just changing this number somewhere in the program which I do not know yet. I can easily adjust various dimensions of the object. Some important parameters here would be: inner diameter, width and height. That is the next thing to learn.  PS  Oh since probably nobody reads this blog yet, I am not going to bother yet/I do not know how I am going to implement this. But these files can be made available, for now just shoot me a mail!">
-  <meta name="twitter:url" content="https://shiko.nl/3d-printing/drawing-orings/">
-
-  
-    <meta name="twitter:card" content="summary">
-    
-      <meta name="twitter:image" content="https://shiko.nl/assets/images/site-logo.png">
-    
-  
-
-  
-
 
 
   <meta property="article:published_time" content="2020-12-28T00:00:00+01:00">
@@ -416,7 +402,7 @@
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?via=mmistakes&text=Drawing+O-rings+for+dad+aka+printing+O-rings+for+dad+part+2%20https%3A%2F%2Fshiko.nl%2F3d-printing%2Fdrawing-orings%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=Drawing+O-rings+for+dad+aka+printing+O-rings+for+dad+part+2%20https%3A%2F%2Fshiko.nl%2F3d-printing%2Fdrawing-orings%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshiko.nl%2F3d-printing%2Fdrawing-orings%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
@@ -446,6 +432,47 @@
     <div class="page__related">
       <h4 class="page__related-title">You May Also Enjoy</h4>
       <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programming/update-ha-2021/" rel="permalink">Can’t update home assistant to latest version because of RUST
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Can’t update home assistant with rust
+
+I kept getting the issue,  error: can’t find Rust compiler on my truenas box. After looking everywhere and trying vari...</p>
+  </article>
+</div>
+
         
           
 
@@ -572,47 +599,6 @@ Let’s firstly state the design you will read works without issue. The high vol
 </div>
 
         
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/electronics/pwm-fan-controller/" rel="permalink">Creating a simple and cheap fan controller
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          10 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">From the need to the idea to the solution
-
-After upgrading my computer with the new Ryzen 5800x series, the new motherboard did not include a header to conne...</p>
-  </article>
-</div>
-
-        
       </div>
     </div>
   
@@ -641,15 +627,11 @@ After upgrading my computer with the new Ryzen 5800x series, the new motherboard
     
       
         
-          <li><a href="" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+          <li><a href="https://github.com/shikon" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
         
       
         
-          <li><a href="" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
-        
-      
-        
-          <li><a href="" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+          <li><a href="https://www.linkedin.com/in/lanhu" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> Linkedin</a></li>
         
       
     

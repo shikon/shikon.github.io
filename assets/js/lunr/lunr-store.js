@@ -58,4 +58,10 @@ var store = [{
         "tags": ["Smart Home","ZigBee"],
         "url": "/programming/shibee-stick-flash/",
         "teaser": null
+      },{
+        "title": "Can't update home assistant to latest version because of RUST",
+        "excerpt":"Can’t update home assistant with rust I kept getting the issue, error: can’t find Rust compiler on my truenas box. After looking everywhere and trying various solutions I was able to update to the latest version 2021.12.7 of home assistant. Follow this guide to install home assistant https://community.home-assistant.io/t/installation-of-home-assistant-on-your-freenas/195158 Install rust...","categories": ["programming"],
+        "tags": ["server","ZigBee","Smart Home"],
+        "url": "/programming/update-ha-2021/",
+        "teaser": null
       },]
