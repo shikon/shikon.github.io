@@ -64,4 +64,10 @@ var store = [{
         "tags": ["server","ZigBee","Smart Home"],
         "url": "/programming/update-ha-2021/",
         "teaser": null
+      },{
+        "title": "RGB lights even on your stairs",
+        "excerpt":"RGB on stairs that is boring Is what you might think. But let’s spice it up a bit by making them user aware. Okay, let’s put a motion sensor nearby and this activated the lights when you are in the vicinity. Well… no it can be even cooler, how about...","categories": ["programming"],
+        "tags": ["Smart Home","Arduino"],
+        "url": "/programming/pressure_RGB_stairs/",
+        "teaser": null
       },]
