@@ -6,7 +6,7 @@ last_modified_at: 2021-01-07T20:51:23+2:00
 toc: true
 ---
 
-Fascinated by physics as well as modern devices I currently engineer for a company which is making many lives easier and more fulfilling. In my free time I like to be active but it is hard to balance with my passion for technology. Understanding my DIY projects from all abstraction levels, from device to system is my joy.
+Fascinated by physics as well as modern devices I currently engineer for a company which enables lives to be easier and more fulfilling. In my free time I like to be active but it is hard to balance with my passion for technology. Understanding my DIY projects from all abstraction levels, from device to system is my pleasure.
 
 ## Goal
 
