@@ -30,7 +30,7 @@ So the ShiBee stick comes ready with the firmware already flashed on there. Depe
 
 4. `pip install pyserial intelhex` dependencies
 
-5. Download the firmware ([coordinator](https://github.com/Koenkk/Z-Stack-firmware/tree/master/coordinator/Z-Stack_3.x.0/bin) or [router](https://github.com/Koenkk/Z-Stack-firmware/tree/master/router/Z-Stack_3.x.0/bin)) with "CC1352", please select the "other" version as it will make sure the LEDs work. The filename is `FIRMWARE`
+5. Download the firmware ([coordinator](https://github.com/Koenkk/Z-Stack-firmware/tree/master/coordinator/Z-Stack_3.x.0/bin) or [router](https://github.com/Koenkk/Z-Stack-firmware/tree/master/router/Z-Stack_3.x.0/bin)) with "CC1352", please select the "other" version as it will make sure the LEDs work. The filename is `FIRMWARE`. The script that will be used in python can be downloaded from [here](https://codeload.github.com/JelmerT/cc2538-bsl/zip/master).
 
 6. Open device manager if on windows or use `lsusb` and find what name = `PORT`  your computer gave your CH340 usb device. <img src="https://raw.githubusercontent.com/shikon/cloudimg/master/typora/image-20220109181945934.png" alt="image-20220109181945934" style="zoom:50%;" />
 
