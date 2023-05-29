@@ -55,11 +55,11 @@ Now we have to make sure the peak current is below that of the saturation curren
 
 $$I_{peak} = I_{in} +\frac{V_{in}D}{2Lf}= 0.25 + \frac{12\cdot0.85}{2\cdot100\cdot10^{-3}} \approx 0.5$$ A
 
-The input current ($I_{in} = \frac{P_{out}}{\eta V_{in}}$) can be a rough estimate with your target efficiency. Furthermore, choosing an oversized inductor also prevents going into CCM mode. The design of a CCM mode boost converter is difficult here. Because it requires you to have a minimum load, which is not always the case. The bulbs could be turned off or have PWM dimming, which in CCM is hard to achieve due to the low (temporary) load.
+The input current ($$I_{in} = \frac{P_{out}}{\eta V_{in}}$$) can be a rough estimate with your target efficiency. Furthermore, choosing an oversized inductor also prevents going into CCM mode. The design of a CCM mode boost converter is difficult here. Because it requires you to have a minimum load, which is not always the case. The bulbs could be turned off or have PWM dimming, which in CCM is hard to achieve due to the low (temporary) load.
 
 ## Inductor power loss
 
-An inductor is just a long strand of wire, hence it has a resistance $R_L$ and thus DC power losses. Also changing the magnetic field in the core material can lead to AC losses. These are,
+An inductor is just a long strand of wire, hence it has a resistance $$R_L$$ and thus DC power losses. Also changing the magnetic field in the core material can lead to AC losses. These are,
 $$
 P_{L,DC} = I_{in}^2 R_L,
 $$
@@ -68,11 +68,11 @@ $$
 P_{L,AC} = I_{ripple}^2k_1\sqrt{f},
 $$
 
-with $k_1$ a coupling coefficient from the [datasheet](https://www.coilcraft.com/en-us/models/spice/?seriesName=MSS1278):
+with $$k_1$$ a coupling coefficient from the [datasheet](https://www.coilcraft.com/en-us/models/spice/?seriesName=MSS1278):
 
 ![image-20211005175727731](https://raw.githubusercontent.com/shikon/cloudimg/master/typora/image-20211005175727731.png)
 
-I ignore R1 because the switching happens at 220 kHz and due to the series capacitance in the branch of R1 very little current flows. The impedance of the capacitor is ~$67\:k\Omega $, while the inductor is ~$138\:\Omega$.
+I ignore R1 because the switching happens at 220 kHz and due to the series capacitance in the branch of R1 very little current flows. The impedance of the capacitor is ~$$67\:k\Omega $, while the inductor is ~$$138\:\Omega$.
 
 
 
@@ -98,18 +98,18 @@ with $$V_f$$ the diode forward voltage.
 
 ## Gate charge losses
 
-In order for a MOSFET to conduct, charges are collected on the gate ($Q_{gate}$) to create an electric field. The charges on the gate can be assumed to be lost after discharging it to close the gate again. The power lost through the gate ($P_{gate}$) is,
+In order for a MOSFET to conduct, charges are collected on the gate ($$Q_{gate}$$) to create an electric field. The charges on the gate can be assumed to be lost after discharging it to close the gate again. The power lost through the gate ($$P_{gate}$$) is,
 $$
 P_{gate}=Q_{gate}V_{in}f.
 $$
 All these losses, typically scale with the size of the MOSFET, so we would like to use a very small MOSFET. Unfortunately, this is not possible because we would like the MOSFET to be resistant to a large difference between the source and drain. Because of the large output voltage, we would need a large MOSFET. It is worth noting that bigger MOSFETs are more expensive. This led me to use a [voltage multiplier cell](https://ieeexplore.ieee.org/document/4463866) which would let me use the smaller brother of the Infineon IRFH5025, the Infineon IRFH5215. 
 
-| Model        | $V_{DS,max}$ (V) | $Q_{gate}$ (nC) | $R_{DS,on}$ (m$\Omega$) | $t_{rise}$ (ns) | $t_{fall}$ (ns) | $t_{total}$ (ns) |
-| ------------ | ---------------- | --------------- | ----------------------- | --------------- | --------------- | ---------------- |
-| AP15T15GH-HF | 150              | 24              | 150                     | 12              | 4               | 16               |
-| IRF7853      | 100              | 28              | 15                      | 6.6             | 6               | 12.6             |
-| IRFH5025     | 250              | 37              | 84                      | 6.3             | 6.1             | 12.4             |
-| IRFH5215     | 150              | 21              | 58                      | 6.3             | 2.9             | 9.2              |
+| Model        | $$V_{DS,max}$$ (V) | $$Q_{gate}$$ (nC) | $$R_{DS,on}$$ (m$$\Omega$$) | $$t_{rise}$$ (ns) | $$t_{fall}$$ (ns) | $$t_{total}$$ (ns) |
+| ------------ | ------------------ | ----------------- | --------------------------- | ----------------- | ----------------- | ------------------ |
+| AP15T15GH-HF | 150                | 24                | 150                         | 12                | 4                 | 16                 |
+| IRF7853      | 100                | 28                | 15                          | 6.6               | 6                 | 12.6               |
+| IRFH5025     | 250                | 37                | 84                          | 6.3               | 6.1               | 12.4               |
+| IRFH5215     | 150                | 21                | 58                          | 6.3               | 2.9               | 9.2                |
 
 Which in all the listed specs is superior except the maximum voltage between source and drain. The IRFH5215 -is also half the price of IRFH5025- priced at €0.96 (MQTY. 4000). It should be noted the maximum drain current can be a limiting factor, however for power MOSFETs as these, this is generally not a problem and is much higher than the inductor saturation current.
 
@@ -119,11 +119,11 @@ The diode is there to prevent the capacitor from discharging. However, each time
 
 ## "Diode resistance"
 
-Because the voltage is decreased after a diode, there is a power loss ($P_{f}$) attributed to this as current is passing. This current is roughly, on average $I_{avg} = P_{out}/V_{in}$.
+Because the voltage is decreased after a diode, there is a power loss ($$P_{f}$$) attributed to this as current is passing. This current is roughly, on average $$I_{avg} = P_{out}/V_{in}$$.
 $$
 P_f = (1-D)V_fI_{avg},
 $$
-with $V_f$ the forward voltage drop of the diode. In order to improve the efficiency of my design, I could change the design to a synchronous boost controller, which means replacing the diodes with a MOSFET as the voltage drop along the channel is much smaller than a diode. However, this adds a lot of complexity and cost, as a MOSFET is more expensive and needs to be driven. Also, the impact of this voltage drop is low  because of the large boost ratio ($V_{out}/V_{in}$) and large output voltage.
+with $$V_f$$ the forward voltage drop of the diode. In order to improve the efficiency of my design, I could change the design to a synchronous boost controller, which means replacing the diodes with a MOSFET as the voltage drop along the channel is much smaller than a diode. However, this adds a lot of complexity and cost, as a MOSFET is more expensive and needs to be driven. Also, the impact of this voltage drop is low  because of the large boost ratio ($$V_{out}/V_{in}$$) and large output voltage.
 
 ## Switching losses in diodes
 
@@ -135,7 +135,7 @@ In some applications, such as in ADC and DAC the voltage reference should be as 
 
 # Total power loss
 
-The efficiency ($\eta$) is just $P_{out}/P_{in}$. In other words,
+The efficiency ($$\eta$$) is just $$P_{out}/P_{in}$$. In other words,
 $$
 \eta = \frac{P_{in} - P_{loss}}{P_{in}},
 $$
@@ -143,4 +143,4 @@ with,
 $$
 P_{loss}=P_{L,DC}+P_{L,AC}+P_c+P_{switch}+P_{gate}+P_f.
 $$
-The expected efficiency of my design was 89%, which is a bit higher than the measured one. The 2% difference can already be explained if I have ~$100 \:m\Omega$ of track resistance, which is plausible. Furthermore, it could be that some of the numbers that I used were slightly off or some other loss mechanisms were not included. At this point, I am not too worried as all the criteria have been met. It could be optimized by diving even deeper, but my nixie clock is working now correctly. How I am controlling the nixie clock, will be part 3 of this adventure...
+The expected efficiency of my design was 89%, which is a bit higher than the measured one. The 2% difference can already be explained if I have ~$$100 \:m\Omega$$ of track resistance, which is plausible. Furthermore, it could be that some of the numbers that I used were slightly off or some other loss mechanisms were not included. At this point, I am not too worried as all the criteria have been met. It could be optimized by diving even deeper, but my nixie clock is working now correctly. How I am controlling the nixie clock, will be part 3 of this adventure...
