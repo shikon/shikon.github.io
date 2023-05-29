@@ -70,4 +70,10 @@ var store = [{
         "tags": ["Smart Home","Arduino"],
         "url": "/programming/pressure_RGB_stairs/",
         "teaser": null
+      },{
+        "title": "A secret BOM tool used for my PCB assembly",
+        "excerpt":"Exploring PCB Design Tools: A interactive BOM tool for EAGLE Introduction When it comes to PCB design, choosing the right software tool is crucial for efficiency and productivity. In this blog post, I will share my experience with two popular tools: EAGLE from Autodesk and Altium Designer. Having initially used...","categories": ["electronics"],
+        "tags": ["PCB","graduation"],
+        "url": "/electronics/pcb_graduation/",
+        "teaser": null
       },]
