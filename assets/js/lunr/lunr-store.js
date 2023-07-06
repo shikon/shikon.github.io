@@ -76,4 +76,16 @@ var store = [{
         "tags": ["PCB","graduation"],
         "url": "/electronics/pcb_graduation/",
         "teaser": null
+      },{
+        "title": "Exploring the Fascinating Relationship Between Food and Culture While Traveling",
+        "excerpt":"Why I Travel and the Significance of Food Traveling is a true passion of mine, just like cooking. It opens up a world of new experiences and allows me to delve into different cultures, especially through their food. While traveling, I often encounter tastes and culinary practices that differ from...","categories": ["travel"],
+        "tags": ["food","culture","history"],
+        "url": "/travel/why_travel/",
+        "teaser": null
+      },{
+        "title": "Unveiling the Value of Time and Money: Pondering Life's Priorities through Books and Reflection",
+        "excerpt":"Finding Serenity in Reading During Holidays While I’m not an avid reader in my day-to-day life, I find solace in reading during my holidays. It’s a time when I can unwind and indulge in the joy of relaxation or knowledge acquisition, unburdened by my usual array of activities such as...","categories": ["growth"],
+        "tags": ["books","finance","life"],
+        "url": "/growth/values_vs_money/",
+        "teaser": null
       },]
