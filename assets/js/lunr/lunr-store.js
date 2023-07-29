@@ -88,4 +88,10 @@ var store = [{
         "tags": ["books","finance","life"],
         "url": "/growth/values_vs_money/",
         "teaser": null
+      },{
+        "title": "The weird pricing of consumer goods in comparison with oil",
+        "excerpt":"The prize puzzle Have you ever wondered why soft drinks, such as Coca-Cola or Fanta, seem to carry a hefty price tag? As I pondered this question, I decided to delve deeper into the world of consumer pricing. What I found was truly surprising and thought-provoking. Petrol vs soft drinks...","categories": ["growth"],
+        "tags": ["finance","life"],
+        "url": "/growth/pricing_of_oil/",
+        "teaser": null
       },]
