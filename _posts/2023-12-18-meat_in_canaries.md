@@ -18,27 +18,6 @@ Join me as I delve into the vibrant streets of Tenerife and the enchanting lands
 
 # No cow, no beef
 Upon landing, my mate and I were on a mission: find the perfect steak tartare restaurant. 
-Rumor had it that somewhere on Tenerife a great steak tartare is served.
-After some searching, we discovered [it](https://maps.app.goo.gl/X6H1d7h7JT25ngkp6).
-Obviously the entre was already set in stone, the steak tartare. 
-Now we were faced with the delightful dilemma of choosing our mains.
-Opting for a succulent rib eye, I eagerly cut into the medium-rare beef and was met with a strangely familiar taste, one that transported me back to Western Europe.
-
-# Canarian beef or Argentinan beef
-Curiosity piqued and I decided to inquire about the origin of the beef. 
-The restaurant staff, friendly and accommodating, confirmed my suspicions with a casual, "Anywhere between the UK and Poland. Depends on the season, really." 
-This unexpected revelation triggered reflections on a recent post I penned about the intricate [interplay of culture and food](https://shiko.nl/travel/why_travel/), a topic I explore more thoroughly [link to previous post on food].
-
-Unlike my previous experience with Canarian beef in Gran Canaria, this time the meat had a familiar taste. 
-The local cows, it seemed, had given way to imports.
-This observation actually became a recurring theme throughout my holiday, each bite of beef was a reminder of the interconnectedness of global food trade.
-
-I couldn't help but marvel at the economic intricacies that made this possible, particularly the timely delivery of perishable goods like Argentine beef via ships. It's a phenomenon made feasible by the affordability of oil, a topic I delved into in a [previous post](https://shiko.nl/growth/pricing_of_oil/). 
-The popularity of imported beef in Tenerife and even in Madeira (my next destination) underscored the resilience of global food export patterns.
-
-# No cow, no beef
-
-Upon landing, my mate and I were on a mission: find the perfect steak tartare restaurant. 
 Rumor had it that somewhere on Tenerife a great steak tartare is served. 
 After some searching, we discovered [it](https://maps.app.goo.gl/X6H1d7h7JT25ngkp6). 
 Obviously, the entre was already set in stone, the steak tartare. 
@@ -46,7 +25,6 @@ Now we were faced with the delightful dilemma of choosing our mains.
 Opting for a succulent rib eye, I eagerly cut into the medium-rare beef and was met with a strangely familiar taste, one that transported me back to Western Europe.
 
 # Canarian beef or Argentinean beef
-
 Curiosity piqued and I decided to inquire about the origin of the beef. 
 The restaurant staff, friendly and accommodating, confirmed my suspicions with a casual, "Anywhere between the UK and Poland. Depends on the season, really." 
 This unexpected revelation triggered reflections on a recent post I penned about the intricate [interplay of culture and food](https://shiko.nl/travel/why_travel/).
