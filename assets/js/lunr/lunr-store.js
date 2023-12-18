@@ -94,4 +94,10 @@ var store = [{
         "tags": ["finance","life"],
         "url": "/growth/pricing_of_oil/",
         "teaser": null
+      },{
+        "title": "A Culinary Odyssey from the Canaries",
+        "excerpt":"Why I escape the cold Ever since I tossed my graduation cap into the air, I’ve made a habit of escaping the chilly winters of The Netherlands. The Canary Islands swiftly became my haven, it is a readily accessible retreat offering affordable, visa-free flights. On my latest expedition, I embarked...","categories": ["growth"],
+        "tags": ["food","life","culture"],
+        "url": "/growth/meat_in_canaries/",
+        "teaser": null
       },]
