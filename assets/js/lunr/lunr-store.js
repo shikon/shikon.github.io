@@ -100,4 +100,10 @@ var store = [{
         "tags": ["food","life","culture"],
         "url": "/growth/meat_in_canaries/",
         "teaser": null
+      },{
+        "title": "Island Harmony: Exploring Challenges and Creativity in Limited Competition",
+        "excerpt":"Discovering Harmonies: A Stroll Through Madeira’s Musical Christmas As I strolled through the heart of Madeira’s city center, the melodic strains of the island’s light orchestra wafted through the air. It was two weeks till christmas, a bit chillier than usual for Madeira. The Christmas market was packed with people....","categories": ["growth"],
+        "tags": ["music","life","culture"],
+        "url": "/growth/competition_islands/",
+        "teaser": null
       },]
