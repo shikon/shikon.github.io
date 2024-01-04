@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Automatic restart ESP8266 with ESP easy - Shiko</title>
-<meta name="description" content="A smart home with issues  Recently, I had the issue where my ZigBee network would die every few days. After a lot of debugging and even re-pairing of all my devices, I came to the conclusion my ZigBee coordinator is nearing the end of its life. Strangely enough, if you restart the device it will work… for a few days. Hence, a quick and dirty fix is to restart the device every day. This is not a solution to the problem, but in case of buggy software or just hardware that is not working well can be a temporary solution.  CC2531 ZigBee with ESP8266 as wireless coordinator  In my case the CC2531 which is my ZigBee network coordinator is connected to an ESP8266 as a serial to wireless bridge. Because of that, I run a piece of software called ESP easy to set this up. In here we can set a rule that will restart the device every x minutes of on time as follows.  Enable rules in ESP easy     To enable rules, go to Tools/Advanced and check the Rules checkbox.   Save   Refresh the page   Go to rules and insert the following code          Between Devices and Notifications there will be a rules button           Click on the rules button to go to that page           Insert the following code      On Uptime#MUC1_Uptime do if [Uptime#MUC1_Uptime]&gt;1440  Reboot endif endon                Save           ???           Profit      You can change 1440 to the number of minutes you want. After this amount of time the device will restart.  This is not the final solution  At the moment I am designing my own ZigBee USB stick to work with Zigbee2MQTT (Z2M) or Zigbee Home Assistant (ZHA) which both can be integrated in Home Assistant. However due to chip-supply issues the newer sticks based on TI’s CC2652P are mostly out-of-stock as of this writing. Therefore, I will try to create a simple design and sell my prototypes in the Dutch market.">
+<!-- begin _includes/seo.html --><title>Enabling comments - Shiko</title>
+<meta name="description" content="Being social to connect and grow Enabling comments has been for over a year on my to do list, but I never got to it. The need wasn’t very high as I didn’t get that many, if any website visits at all. Now I see spurious people visiting -or bots scraping- my website, I thought it is time to connect. My posts are just some random thoughts I have and want to write down. But it is always good to look back or reflect on it. One thing I have learned from working at a company is how good we humans are in working together. It enables us to go much farther than other animals. Furthermore it makes us grow and it is time to make that possible by letting others comment.  Bots and spam The main deterrant was that I didn’t want bots spamming on my website. I hope the algorithms are good enough to prevent this these days. Proof is in the pudding so let’s see!">
 
 
   <meta name="author" content="Lan Hu">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Shiko">
-<meta property="og:title" content="Automatic restart ESP8266 with ESP easy">
-<meta property="og:url" content="https://shiko.nl/programming/espeasy-restart/">
+<meta property="og:title" content="Enabling comments">
+<meta property="og:url" content="https://shiko.nl/website/enabling_comments/">
 
 
-  <meta property="og:description" content="A smart home with issues  Recently, I had the issue where my ZigBee network would die every few days. After a lot of debugging and even re-pairing of all my devices, I came to the conclusion my ZigBee coordinator is nearing the end of its life. Strangely enough, if you restart the device it will work… for a few days. Hence, a quick and dirty fix is to restart the device every day. This is not a solution to the problem, but in case of buggy software or just hardware that is not working well can be a temporary solution.  CC2531 ZigBee with ESP8266 as wireless coordinator  In my case the CC2531 which is my ZigBee network coordinator is connected to an ESP8266 as a serial to wireless bridge. Because of that, I run a piece of software called ESP easy to set this up. In here we can set a rule that will restart the device every x minutes of on time as follows.  Enable rules in ESP easy     To enable rules, go to Tools/Advanced and check the Rules checkbox.   Save   Refresh the page   Go to rules and insert the following code          Between Devices and Notifications there will be a rules button           Click on the rules button to go to that page           Insert the following code      On Uptime#MUC1_Uptime do if [Uptime#MUC1_Uptime]&gt;1440  Reboot endif endon                Save           ???           Profit      You can change 1440 to the number of minutes you want. After this amount of time the device will restart.  This is not the final solution  At the moment I am designing my own ZigBee USB stick to work with Zigbee2MQTT (Z2M) or Zigbee Home Assistant (ZHA) which both can be integrated in Home Assistant. However due to chip-supply issues the newer sticks based on TI’s CC2652P are mostly out-of-stock as of this writing. Therefore, I will try to create a simple design and sell my prototypes in the Dutch market.">
+  <meta property="og:description" content="Being social to connect and grow Enabling comments has been for over a year on my to do list, but I never got to it. The need wasn’t very high as I didn’t get that many, if any website visits at all. Now I see spurious people visiting -or bots scraping- my website, I thought it is time to connect. My posts are just some random thoughts I have and want to write down. But it is always good to look back or reflect on it. One thing I have learned from working at a company is how good we humans are in working together. It enables us to go much farther than other animals. Furthermore it makes us grow and it is time to make that possible by letting others comment.  Bots and spam The main deterrant was that I didn’t want bots spamming on my website. I hope the algorithms are good enough to prevent this these days. Proof is in the pudding so let’s see!">
 
 
 
@@ -36,7 +36,7 @@
 
 
 
-  <meta property="article:published_time" content="2021-10-06T00:00:00+02:00">
+  <meta property="article:published_time" content="2024-01-04T00:00:00+01:00">
 
 
 
@@ -47,7 +47,7 @@
   
 
 
-<link rel="canonical" href="https://shiko.nl/programming/espeasy-restart/">
+<link rel="canonical" href="https://shiko.nl/website/enabling_comments/">
 
 
 
@@ -285,197 +285,17 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Automatic restart ESP8266 with ESP easy">
-    <meta itemprop="description" content="A smart home with issuesRecently, I had the issue where my ZigBee network would die every few days. After a lot of debugging and even re-pairing of all my devices, I came to the conclusion my ZigBee coordinator is nearing the end of its life. Strangely enough, if you restart the device it will work… for a few days. Hence, a quick and dirty fix is to restart the device every day. This is not a solution to the problem, but in case of buggy software or just hardware that is not working well can be a temporary solution.CC2531 ZigBee with ESP8266 as wireless coordinatorIn my case the CC2531 which is my ZigBee network coordinator is connected to an ESP8266 as a serial to wireless bridge. Because of that, I run a piece of software called ESP easy to set this up. In here we can set a rule that will restart the device every x minutes of on time as follows.Enable rules in ESP easy  To enable rules, go to Tools/Advanced and check the Rules checkbox.  Save  Refresh the pageGo to rules and insert the following code      Between Devices and Notifications there will be a rules button        Click on the rules button to go to that page        Insert the following code    On Uptime#MUC1_Uptime doif [Uptime#MUC1_Uptime]&gt;1440 Rebootendifendon            Save        ???        Profit  You can change 1440 to the number of minutes you want. After this amount of time the device will restart.This is not the final solutionAt the moment I am designing my own ZigBee USB stick to work with Zigbee2MQTT (Z2M) or Zigbee Home Assistant (ZHA) which both can be integrated in Home Assistant. However due to chip-supply issues the newer sticks based on TI’s CC2652P are mostly out-of-stock as of this writing. Therefore, I will try to create a simple design and sell my prototypes in the Dutch market.">
-    <meta itemprop="datePublished" content="2021-10-06T00:00:00+02:00">
+    <meta itemprop="headline" content="Enabling comments">
+    <meta itemprop="description" content="Being social to connect and growEnabling comments has been for over a year on my to do list, but I never got to it.The need wasn’t very high as I didn’t get that many, if any website visits at all.Now I see spurious people visiting -or bots scraping- my website, I thought it is time to connect.My posts are just some random thoughts I have and want to write down.But it is always good to look back or reflect on it.One thing I have learned from working at a company is how good we humans are in working together.It enables us to go much farther than other animals.Furthermore it makes us grow and it is time to make that possible by letting others comment.Bots and spamThe main deterrant was that I didn’t want bots spamming on my website.I hope the algorithms are good enough to prevent this these days.Proof is in the pudding so let’s see!">
+    <meta itemprop="datePublished" content="2024-01-04T00:00:00+01:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Automatic restart ESP8266 with ESP easy
+          <h1 id="page-title" class="page__title" itemprop="headline">Enabling comments
 </h1>
           
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          2 minute read
-        
-      </span>
-    
-  </p>
-
-
-        </header>
-      
-
-      <section class="page__content" itemprop="text">
-        
-          <aside class="sidebar__right sticky">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#a-smart-home-with-issues">A smart home with issues</a></li><li><a href="#cc2531-zigbee-with-esp8266-as-wireless-coordinator">CC2531 ZigBee with ESP8266 as wireless coordinator</a><ul><li><a href="#enable-rules-in-esp-easy">Enable rules in ESP easy</a></li><li><a href="#go-to-rules-and-insert-the-following-code">Go to rules and insert the following code</a></li></ul></li><li><a href="#this-is-not-the-final-solution">This is not the final solution</a></li></ul>
-
-            </nav>
-          </aside>
-        
-        <h1 id="a-smart-home-with-issues">A smart home with issues</h1>
-
-<p>Recently, I had the issue where my ZigBee network would die every few days. After a lot of debugging and even re-pairing of all my devices, I came to the conclusion my ZigBee coordinator is nearing the end of its life. Strangely enough, if you restart the device it will work… for a few days. Hence, a quick and dirty fix is to restart the device every day. This is not a solution to the problem, but in case of buggy software or just hardware that is not working well can be a temporary solution.</p>
-
-<h1 id="cc2531-zigbee-with-esp8266-as-wireless-coordinator">CC2531 ZigBee with ESP8266 as wireless coordinator</h1>
-
-<p>In my case the CC2531 which is my ZigBee network coordinator is connected to an ESP8266 as a serial to wireless bridge. Because of that, I run a piece of software called ESP easy to set this up. In here we can set a rule that will restart the device every x minutes of on time as follows.</p>
-
-<h2 id="enable-rules-in-esp-easy">Enable rules in ESP easy</h2>
-
-<ol>
-  <li>To enable rules, go to Tools/Advanced and check the Rules checkbox.</li>
-  <li>Save</li>
-  <li>Refresh the page</li>
-</ol>
-
-<h2 id="go-to-rules-and-insert-the-following-code">Go to rules and insert the following code</h2>
-
-<ol>
-  <li>
-    <p>Between Devices and Notifications there will be a rules button</p>
-  </li>
-  <li>
-    <p>Click on the rules button to go to that page</p>
-  </li>
-  <li>
-    <p>Insert the following code</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>On Uptime#MUC1_Uptime do
-if [Uptime#MUC1_Uptime]&gt;1440
- Reboot
-endif
-endon
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>Save</p>
-  </li>
-  <li>
-    <p>???</p>
-  </li>
-  <li>
-    <p>Profit</p>
-  </li>
-</ol>
-
-<p>You can change 1440 to the number of minutes you want. After this amount of time the device will restart.</p>
-
-<h1 id="this-is-not-the-final-solution">This is not the final solution</h1>
-
-<p>At the moment I am designing my own ZigBee USB stick to work with Zigbee2MQTT (Z2M) or Zigbee Home Assistant (ZHA) which both can be integrated in Home Assistant. However due to chip-supply issues the newer sticks based on TI’s CC2652P are mostly out-of-stock as of this writing. Therefore, I will try to create a simple design and sell my prototypes in the Dutch market.</p>
-
-        
-      </section>
-
-      <footer class="page__meta">
-        
-        
-  
-
-
-  
-
-  <p class="page__taxonomy">
-    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
-    <span itemprop="keywords">
-    
-      <a href="/tags/#smart-home" class="page__taxonomy-item" rel="tag">Smart Home</a><span class="sep">, </span>
-    
-      <a href="/tags/#zigbee" class="page__taxonomy-item" rel="tag">ZigBee</a>
-    
-    </span>
-  </p>
-
-
-
-
-  
-
-
-  
-
-  <p class="page__taxonomy">
-    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
-    <span itemprop="keywords">
-    
-      <a href="/categories/#programming" class="page__taxonomy-item" rel="tag">programming</a>
-    
-    </span>
-  </p>
-
-
-        
-
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-10-06T00:00:00+02:00">October 6, 2021</time></p>
-
-
-      </footer>
-
-      <section class="page__share">
-  
-
-  <a href="https://twitter.com/intent/tweet?text=Automatic+restart+ESP8266+with+ESP+easy%20https%3A%2F%2Fshiko.nl%2Fprogramming%2Fespeasy-restart%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
-
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshiko.nl%2Fprogramming%2Fespeasy-restart%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
-
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fshiko.nl%2Fprogramming%2Fespeasy-restart%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
-</section>
-
-
-      
-  <nav class="pagination">
-    
-      <a href="/electronics/boost-design/" class="pagination--pager" title="Designing a Nixie HV supply part 2
-">Previous</a>
-    
-    
-      <a href="/programming/shibee-stick-flash/" class="pagination--pager" title="ShiBee stick flashing and teardown
-">Next</a>
-    
-  </nav>
-
-    </div>
-
-    
-  </article>
-
-  
-  
-    <div class="page__related">
-      <h4 class="page__related-title">You May Also Enjoy</h4>
-      <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/website/enabling_comments/" rel="permalink">Enabling comments
-</a>
-      
-    </h2>
-    
 
   <p class="page__meta">
     
@@ -496,12 +316,96 @@ endon
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">Being social to connect and grow
-Enabling comments has been for over a year on my to do list, but I never got to it.
-The need wasn’t very high as I didn’t ge...</p>
-  </article>
-</div>
+        </header>
+      
 
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#being-social-to-connect-and-grow">Being social to connect and grow</a></li><li><a href="#bots-and-spam">Bots and spam</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h1 id="being-social-to-connect-and-grow">Being social to connect and grow</h1>
+<p>Enabling comments has been for over a year on my to do list, but I never got to it.
+The need wasn’t very high as I didn’t get that many, if any website visits at all.
+Now I see spurious people visiting -or bots scraping- my website, I thought it is time to connect.
+My posts are just some random thoughts I have and want to write down.
+But it is always good to look back or reflect on it.
+One thing I have learned from working at a company is how good we humans are in working together.
+It enables us to go much farther than other animals.
+Furthermore it makes us grow and it is time to make that possible by letting others comment.</p>
+
+<h1 id="bots-and-spam">Bots and spam</h1>
+<p>The main deterrant was that I didn’t want bots spamming on my website.
+I hope the algorithms are good enough to prevent this these days.
+Proof is in the pudding so let’s see!</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#website" class="page__taxonomy-item" rel="tag">website</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-01-04T00:00:00+01:00">January 4, 2024</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Enabling+comments%20https%3A%2F%2Fshiko.nl%2Fwebsite%2Fenabling_comments%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshiko.nl%2Fwebsite%2Fenabling_comments%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fshiko.nl%2Fwebsite%2Fenabling_comments%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/travel/competition_islands/" class="pagination--pager" title="Island Harmony: Exploring Challenges and Creativity in Limited Competition
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
         
           
 
@@ -620,6 +524,46 @@ The Canary Is...</p>
 
     <p class="archive__item-excerpt" itemprop="description">The prize puzzle
 Have you ever wondered why soft drinks, such as Coca-Cola or Fanta, seem to carry a hefty price tag? As I pondered this question, I decided ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/growth/values_vs_money/" rel="permalink">Unveiling the Value of Time and Money: Pondering Life’s Priorities through Books and Reflection
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Finding Serenity in Reading During Holidays
+While I’m not an avid reader in my day-to-day life, I find solace in reading during my holidays. It’s a time when...</p>
   </article>
 </div>
 
