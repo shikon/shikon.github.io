@@ -2,6 +2,7 @@
 title: "Enabling comments"
 toc: true
 toc_sticky: true
+comment: true
 excerpt_separator: "<!--more-->"
 categories:
   - website
