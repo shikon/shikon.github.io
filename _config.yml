@@ -26,19 +26,14 @@ masthead_title           : # overrides the website title displayed in the masthe
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 150 #average 200-250 if technical down to 50-75 wpm i.o.w. 1/4
 comments:
-  provider               : "false" # false (default), "disqus", "discourse", "facebook", "staticman_v2", "staticman", "utterances", "custom"
-  disqus:
-    shortname            :
-  discourse:
-    server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
-  facebook:
-    # https://developers.facebook.com/docs/plugins/comments
-    appid                :
-    num_posts            : # 5 (default)
-    colorscheme          : # "light" (default), "dark"
-  utterances:
-    theme                : # "github-light" (default), "github-dark"
-    issue_term           : # "pathname" (default)
+  provider: "giscus"
+  giscus:
+    repo_id              : "MDEwOlJlcG9zaXRvcnkzMjQ2NzYxMTE="
+    category_name        : "Announcements"
+    category_id          : "DIC_kwDOE1oqD84CcMt6"
+    discussion_term      : "pathname"
+    reactions_enabled    : '1'
+    theme                : "light"
 reCaptcha:
   siteKey                : "6LfV0KUaAAAAAARrQ-EAkJFwv7zbxIpfXFoERbdr"
   secret                 : "6LfV0KUaAAAAAAP0Xrh7hVB9TfNLWbK0XAe-cMcD"
