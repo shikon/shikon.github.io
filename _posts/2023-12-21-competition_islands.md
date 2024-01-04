@@ -4,7 +4,7 @@ toc: true
 toc_sticky: true
 excerpt_separator: "<!--more-->"
 categories:
-  - growth
+  - travel
 tags:
   - music
   - life
