@@ -1,0 +1,7 @@
+{
+    "pasteImage.basePath": "${projectRoot}/assets/images/",
+    "pasteImage.namePrefix": "${currentFileNameWithoutExt}_",
+    "pasteImage.path": "${projectRoot}/assets/images/",
+    "pasteImage.defaultName": "mm-ss",
+    "pasteImage.insertPattern": "${imageSyntaxPrefix}${imageFilePath}${imageSyntaxSuffix}"
+}
