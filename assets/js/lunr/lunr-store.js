@@ -112,4 +112,10 @@ var store = [{
         "tags": [],
         "url": "/website/enabling_comments/",
         "teaser": null
+      },{
+        "title": "Why Now? The Question That Unlocked My Journey to Purpose",
+        "excerpt":"Unlocking My Ikigai: Could It Be More than Just “Feeling Good”? Ever stop and wonder, “What’s the point of it all?” Lately, I’ve been grappling with that question, exploring the concept of Ikigai – the Japanese philosophy of finding your “reason for being.” You know, the sweet spot where your...","categories": ["growth","travel"],
+        "tags": [],
+        "url": "/growth/travel/why_now/",
+        "teaser": null
       },]
