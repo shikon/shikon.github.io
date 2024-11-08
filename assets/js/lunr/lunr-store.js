@@ -119,7 +119,7 @@ var store = [{
         "url": "/growth/travel/why_now/",
         "teaser": null
       },{
-        "title": "Review: Sinocare contunious glucose monitor",
+        "title": "Review: Sinocare continuous glucose monitor",
         "excerpt":"Why a Continuous Glucose Monitor (CGM)? Even as someone who does not suffer from diabetes, knowing your glucose is a good way to learn your body. Every body reacts a bit different to certain foods, it is then good to know if your body deals nicely with your current diet....","categories": ["life","review"],
         "tags": [],
         "url": "/life/review/cgm_sinocare/",
