@@ -1,5 +1,5 @@
 ---
-title: "Review: Sinocare continious glucose monitor"
+title: "Review: Sinocare contunious glucose monitor"
 toc: true
 toc_sticky: true
 comment: true
@@ -10,7 +10,7 @@ categories:
 tags:
 
 ---
-# Why a Continious Glucose Monitor (CGM)?
+# Why a Continuous Glucose Monitor (CGM)?
 
 Even as someone who does not suffer from diabetes, knowing your glucose is a good way to learn your body.
 Every body reacts a bit different to certain foods, it is then good to know if your body deals nicely with your current diet.
@@ -30,7 +30,7 @@ This was a price that got me intrigued.
 
 # The Sinocare iCan CGM
 ## Specifications of i3 CGM
-![Specifications](https://shiko.nl/assets/images/posts/2024-11-08-cgm_sinocare/image.png)
+![Specifications](https://shiko.nl/images/posts/2024-11-08-cgm_sinocare/image.png)
 Are the main take-aways.
 The specs are very similar to its competitors but a little bit better!
 Since this is a product you need to buy about 24 per year, costs was a huge factor for me.
