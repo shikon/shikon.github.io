@@ -1,5 +1,5 @@
 ---
-title: "Review: Sinocare contunious glucose monitor"
+title: "Review: Sinocare continuous glucose monitor"
 toc: true
 toc_sticky: true
 comment: true
