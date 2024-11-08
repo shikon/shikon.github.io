@@ -119,7 +119,7 @@ footer:
 include:
   - .htaccess
   - _pages
-  - _posts/assets/images/posts
+#  - _posts/assets/images/posts
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"

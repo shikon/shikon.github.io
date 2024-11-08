@@ -30,7 +30,7 @@ This was a price that got me intrigued.
 
 # The Sinocare iCan CGM
 ## Specifications of i3 CGM
-![Specifications](https://shiko.nl/images/posts/2024-11-08-cgm_sinocare/image.png)
+![Specifications](https://shiko.nl/assets/images/posts/2024-11-08-cgm_sinocare/image.png)
 Are the main take-aways.
 The specs are very similar to its competitors but a little bit better!
 Since this is a product you need to buy about 24 per year, costs was a huge factor for me.
@@ -41,12 +41,12 @@ The box is nicely designed, and the components consists of:
 1. Sensor appplicator
 2. Sensor
 It was easy to take them out and the instructions were straightforward.
-![Open box](https://shiko.nl/assets/assets/images/posts/2024-11-08-cgm_sinocare/image-2.png)
+![Open box](https://shiko.nl/assets/images/posts/2024-11-08-cgm_sinocare/image-2.png)
 ## Usage
 Although I wanted to monitor it, I got it as a present for my aunt.
 She has type-2 diabetes and actually has a need to monitor her blood glucose.
 Although she was the user, I will still go over the process as I helped her.
-![Applicator](https://shiko.nl/assets/assets/images/posts/2024-11-08-cgm_sinocare/image-3.png)
+![Applicator](https://shiko.nl/assets/images/posts/2024-11-08-cgm_sinocare/image-3.png)
 After downloading the included app, the setup was quite easy to follow.
 You have to click the sensor into the applicator, charge up the applicator by turning the wheel and place it near your abdomen.
 The application was quite easy and pain free.
@@ -61,7 +61,7 @@ Saving the time and achieving a much more accurate trend of the blood glucose ov
 The main usage I suggested her was to see how her blood sugar varies after eating various food.
 This such that she can learn what foods to avoid at what moments of the day.
 This can severly improve her health, as having too much or too little blood sugar is bad for the body.
-![i3 CGM applied](https://shiko.nl/assets/assets/images/posts/2024-11-08-cgm_sinocare/image-1.png)
+![i3 CGM applied](https://shiko.nl/assets/images/posts/2024-11-08-cgm_sinocare/image-1.png)
 
 # Will I buy one now?
 I think the experiment was succesfull, Sinocare came to market with a competitive product.
